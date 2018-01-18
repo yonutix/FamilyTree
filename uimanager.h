@@ -28,6 +28,11 @@ public:
         qDebug()<<"Submit pressed";
     }
 
+    Q_INVOKABLE void requestLoad()
+    {
+        qDebug()<<"Load pressed";
+    }
+
 private:
 
     UIListener* m_uiListener;
