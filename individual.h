@@ -1,13 +1,13 @@
 #ifndef INDIVIDUAL_H
 #define INDIVIDUAL_H
 
-#include <QVector>
+#include <QList>
 #include <QDate>
 
 class Individual
 {
 public:
-    Individual(unsigned int id, QString firstName, bool sex, QVector<QString> lastName = {}, QDate birthday = QDate(), QDate deathday = QDate())
+    Individual(unsigned int id, QString firstName, bool sex, QList<QString> lastName = {}, QDate birthday = QDate(), QDate deathday = QDate())
     {
         m_id = id;
         m_firstName = firstName;
@@ -24,14 +24,14 @@ public:
     unsigned int getId() const { return m_id;}
     QString getFirstName() const { return m_firstName;}
     bool getSex() const { return m_sex;}
-    QVector<QString> getLastName() const { return m_lastName;}
+    QList<QString> getLastName() const { return m_lastName;}
     QDate getBirthday() const { return m_birthday;}
     QDate getDeathday() const { return m_deathday;}
 
     void setId(unsigned int id) {m_id = id;}
     void setFirstName(QString& firstName) {m_firstName = firstName;}
     void setSex(bool sex) {m_sex = sex;}
-    void setLastName(QVector<QString>& lastName) {m_lastName = lastName;}
+    void setLastName(QList<QString>& lastName) {m_lastName = lastName;}
     void setBirthday(QDate& birthday) {m_birthday = birthday;}
     void setDeathday(QDate& deathday) {m_deathday = deathday;}
 
@@ -43,7 +43,7 @@ private:
     QString m_firstName;
     bool m_sex;
 
-    QVector<QString> m_lastName;
+    QList<QString> m_lastName;
     QDate m_birthday;
     QDate m_deathday;
 

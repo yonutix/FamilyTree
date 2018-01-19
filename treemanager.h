@@ -18,12 +18,12 @@ public:
     }
 
 
-    void loadData(QVector<Individual>& individuals, Parents& parents, Children& children)
+    void loadData(QVector<Individual>& individuals, Parents& parents, Children& children, QString const& path)
     {
 
     }
 
-    void saveData(QVector<Individual>& individuals, Parents& parents, Children& children)
+    void saveData(QVector<Individual>& individuals, Parents& parents, Children& children, QString const& path)
     {
 
     }

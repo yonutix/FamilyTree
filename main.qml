@@ -19,7 +19,8 @@ ApplicationWindow {
         title: "Please choose a file"
         nameFilters: ["Text files (*.xml)", "All files (*)"]
         onAccepted: {
-            console.log("You chose: " + fileDialog.fileUrls)
+            console.log("You chose: " + saveDialog.fileUrls)
+            uimanager.requestLoad(saveDialog.fileUrls)
         }
         onRejected: {
             console.log("Canceled")
@@ -33,7 +34,8 @@ ApplicationWindow {
         selectExisting: false
         nameFilters: ["Text files (*.xml)", "All files (*)"]
         onAccepted: {
-            console.log("You chose: " + fileDialog.fileUrls)
+            console.log("You chose: " + saveDialog.fileUrl)
+            uimanager.requestSave(saveDialog.fileUrl)
         }
         onRejected: {
             console.log("Canceled")
@@ -145,7 +147,7 @@ ApplicationWindow {
         Button {
             text: "Submit"
             onClicked: {
-                uimanager.requestSubmit()
+                uimanager.requestSubmit(idTextId.text, firstNameId.text, lastNameId.text, sexId.checked?"M":"F")
             }
         }
     }
