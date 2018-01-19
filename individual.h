@@ -15,6 +15,7 @@ public:
         m_lastName = lastName;
         m_birthday = birthday;
         m_deathday = deathday;
+
     }
 
     ~Individual()

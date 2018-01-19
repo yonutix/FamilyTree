@@ -2,9 +2,9 @@
 #define CHILD_H
 
 #include <QMap>
-#include <QPair>
+#include <QSet>
 
-class Children : public QMap<unsigned int, QPair<unsigned int, unsigned int> >
+class Children : public QMap<unsigned int, QSet<unsigned int> >
 {
 public:
     Children()

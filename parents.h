@@ -2,9 +2,9 @@
 #define PARENT_H
 
 #include <QMap>
-#include <QPair>
+#include <QSet>
 
-class Parents : public QMap<unsigned int, QPair<unsigned int, unsigned int> >
+class Parents : public QMap<unsigned int, QSet<unsigned int> >
 {
 public:
     Parents()

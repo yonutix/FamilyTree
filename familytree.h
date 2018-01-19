@@ -37,6 +37,46 @@ public:
         xmlWriter.writeStartDocument();
 
         xmlWriter.writeStartElement("famiyTree");
+
+        writeIndividualsNodes(xmlWriter);
+
+        xmlWriter.writeStartElement("allRelations");
+
+        writeParentsRelations(xmlWriter);
+
+        writeChildrenRelations(xmlWriter);
+
+
+        xmlWriter.writeEndElement();//allRelations
+
+
+        xmlWriter.writeEndElement(); //familyTree
+
+        file.close();
+    }
+
+    virtual void onLoadButtonPressed(QString const& path)
+    {
+
+    }
+
+    virtual void onNewIndividual(unsigned int id, QString const& firstName, QList<QString> lastName, bool sex, QList<unsigned int> children)
+    {
+        m_individuals.append(Individual(id, firstName, sex, lastName));
+
+        for(int i = 0; i < children.size(); ++i)
+        {
+            m_children[id].insert(children[i]);
+
+            m_parents[children[i]].insert(id);
+        }
+    }
+
+private:
+
+
+    void writeIndividualsNodes(QXmlStreamWriter& xmlWriter)
+    {
         xmlWriter.writeStartElement("individuals");
 
         for(int i = 0; i < m_individuals.size(); ++i)
@@ -65,23 +105,64 @@ public:
         }
 
         xmlWriter.writeEndElement();//individuals
-
-        xmlWriter.writeEndElement(); //familyTree
-
-        file.close();
     }
 
-    virtual void onLoadButtonPressed(QString const& path)
+    void writeParentsRelations(QXmlStreamWriter& xmlWriter)
     {
+        xmlWriter.writeStartElement("allParents");
+        QMap<unsigned int, QSet<unsigned int> >::iterator parentsIterator = m_parents.begin();
 
+        while(parentsIterator != m_parents.end())
+        {
+            xmlWriter.writeStartElement("relation");
+
+            xmlWriter.writeTextElement("chid", QString::number(parentsIterator.key()));
+
+            QSet<unsigned int>::iterator idIterator = parentsIterator.value().begin();
+
+            while(idIterator != parentsIterator.value().end())
+            {
+                xmlWriter.writeTextElement("parent", QString::number(*idIterator));
+                idIterator++;
+            }
+
+            xmlWriter.writeEndElement();//relation
+
+            parentsIterator++;
+
+        }
+
+
+        xmlWriter.writeEndElement();//allParents
     }
 
-    virtual void onNewIndividual(unsigned int id, QString const& firstName, QList<QString> lastName, bool sex)
+    void writeChildrenRelations(QXmlStreamWriter& xmlWriter)
     {
-        m_individuals.append(Individual(id, firstName, sex, lastName));
-    }
+        xmlWriter.writeStartElement("allChildren");
 
-private:
+        QMap<unsigned int, QSet<unsigned int> >::iterator childrenIterator = m_children.begin();
+
+        while(childrenIterator != m_children.end())
+        {
+            xmlWriter.writeStartElement("relation");
+
+            xmlWriter.writeTextElement("parent", QString::number(childrenIterator.key()));
+
+            QSet<unsigned int>::iterator idIterator = childrenIterator.value().begin();
+
+            while(idIterator != childrenIterator.value().end())
+            {
+                xmlWriter.writeTextElement("child", QString::number(*idIterator));
+                idIterator++;
+            }
+
+            xmlWriter.writeEndElement();//relation
+            childrenIterator++;
+        }
+
+
+        xmlWriter.writeEndElement();//allChildren
+    }
 
     QList<Individual> m_individuals;
 

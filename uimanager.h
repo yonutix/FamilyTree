@@ -21,15 +21,19 @@ public:
     void setListener(UIListener* listener)
     {
         m_uiListener = listener;
-        qDebug()<<"Listener set";
     }
 
-    Q_INVOKABLE void requestSubmit(QString const& id, QString const& firstName, QString const& lastName, QString const& sex)
+    Q_INVOKABLE void requestSubmit(QString const& id, QString const& firstName, QString const& lastName, QString const& sex, QString const& children)
     {
-        qDebug()<<"Submit pressed";
-        qDebug()<<id<<" "<<firstName<<" "<<lastName<<" "<<sex;
 
-        m_uiListener->onNewIndividual(static_cast<unsigned int>(id.toInt()), firstName, lastName.split(" "), sex=="M");
+        QList<unsigned int> childrenData;
+        QList<QString> childrenRawData = children.split(", ");
+        for(int i = 0; i < childrenRawData.size(); ++i)
+        {
+            childrenData.append((unsigned int)childrenRawData[i].toInt());
+        }
+
+        m_uiListener->onNewIndividual(static_cast<unsigned int>(id.toInt()), firstName, lastName.split(" "), sex=="M", childrenData);
     }
 
     Q_INVOKABLE void requestLoad(QString const& path)

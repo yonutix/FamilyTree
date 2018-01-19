@@ -144,10 +144,20 @@ ApplicationWindow {
             Calendar {
             }
         }
+
+        RowLayout {
+            Label {
+                text: "Children(ids separated by coma i.e. id1,id2, id3):"
+            }
+            TextField {
+                id: childrenId
+                width: 100
+            }
+        }
         Button {
             text: "Submit"
             onClicked: {
-                uimanager.requestSubmit(idTextId.text, firstNameId.text, lastNameId.text, sexId.checked?"M":"F")
+                uimanager.requestSubmit(idTextId.text, firstNameId.text, lastNameId.text, sexId.checked?"M":"F", childrenId.text)
             }
         }
     }
