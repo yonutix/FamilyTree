@@ -1,26 +1,63 @@
 from tkinter import *
- 
+from member import *
+from link import *
+
+allMembers = [Member(0, "Alice"), Member(1, "Bob")]
+
+allLinks = [Link(allMembers[0], allMembers[1], "parentOf")]
+
+def infereChildOf(links):
+    for link in links:
+        if link.getType() == "parentOf":
+            if not Link(link.getDest(), link.getSource(), "childOf") in links:
+                links = links + [Link(link.getDest(), link.getSource(), "childOf")]
+    return links
+
+def infereParentOf(links):
+    for link in links:
+        if link.getType() == "childOf":
+            if not Link(link.getDest(), link.getSource(), "parentOf") in links:
+                links = links + [Link(link.getDest(), link.getSource(), "parentOf")]
+    return links
+
+
+
+def onSave():
+    print("onSave")
+
+def onLoad():
+    print("onLoad")
+
+def onAddMember():
+    print("onAddMember")
+
+def onSearchMember():
+    print("onSearchMember")
+
+
 window = Tk()
+
+allLinks = infereChildOf(allLinks)
+
+allLinks = infereParentOf(allLinks)
+
+print(allLinks)
+
  
 window.title("Family Tree App")
 window.geometry('1280x720')
-saveButton = Button(window, text="Save")
+
+saveButton = Button(window, text="Save", command = onSave)
 saveButton.grid(column=0, row=0)
 
-loadButton = Button(window, text="Load")
+loadButton = Button(window, text="Load", command = onLoad)
 loadButton.grid(column=1, row = 0)
 
-addMemberButton = Button(window, text="Add member")
+addMemberButton = Button(window, text="Add member", command = onAddMember)
 addMemberButton.grid(column=2, row = 0)
 
-editMemberButton = Button(window, text="Edit member")
-editMemberButton.grid(column=3, row = 0)
-
-removeMemberButton = Button(window, text="Remove member")
-removeMemberButton.grid(column=4, row = 0)
-
-searchMemberButton = Button(window, text="Search member")
-searchMemberButton.grid(column=5, row = 0)
+searchmemberButton = Button(window, text="Search member", command = onSearchMember)
+searchmemberButton.grid(column=3, row = 0)
 
 canvas = Canvas(window, bg="white", width=1270, height=690)
 canvas.grid(column=0, columnspan=8, row=1)
