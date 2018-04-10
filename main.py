@@ -1,6 +1,6 @@
 from tkinter import *
-from member import *
-from link import *
+from backend.member import *
+from backend.link import *
 
 allMembers = [Member(0, "Alice"), Member(1, "Bob")]
 
@@ -19,7 +19,6 @@ def infereParentOf(links):
             if not Link(link.getDest(), link.getSource(), "parentOf") in links:
                 links = links + [Link(link.getDest(), link.getSource(), "parentOf")]
     return links
-
 
 
 def onSave():
