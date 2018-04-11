@@ -1,8 +1,9 @@
 from tkinter import *
 from backend.member import *
 from backend.link import *
+from gui.gui import *
 
-allMembers = [Member(0, "Alice"), Member(1, "Bob")]
+allMembers = [Member(0, "Alice", "F"), Member(1, "Bob", "M")]
 
 allLinks = [Link(allMembers[0], allMembers[1], "parentOf")]
 
@@ -19,6 +20,7 @@ def infereParentOf(links):
             if not Link(link.getDest(), link.getSource(), "parentOf") in links:
                 links = links + [Link(link.getDest(), link.getSource(), "parentOf")]
     return links
+
 
 
 def onSave():
@@ -42,6 +44,10 @@ allLinks = infereParentOf(allLinks)
 
 print(allLinks)
 
+#
+gui = GUISupport(allMembers, allLinks)
+for member in allMembers:
+    gui.addMember(member, allLinks)
  
 window.title("Family Tree App")
 window.geometry('1280x720')
