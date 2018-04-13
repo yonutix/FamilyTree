@@ -44,7 +44,6 @@ allLinks = infereParentOf(allLinks)
 
 print(allLinks)
 
-#
 gui = GUISupport(allMembers, allLinks)
 for member in allMembers:
     gui.addMember(member, allLinks)
@@ -66,5 +65,7 @@ searchmemberButton.grid(column=3, row = 0)
 
 canvas = Canvas(window, bg="white", width=1270, height=690)
 canvas.grid(column=0, columnspan=8, row=1)
+
+gui.drawGraph(canvas)
 
 window.mainloop()

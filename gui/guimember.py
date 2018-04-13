@@ -36,6 +36,28 @@ class GUIMember:
 
     def setMother(self, mother):
         self.mother = mother
+
+    def setX(self, x):
+        self.x = x
+
+    def setY(self, y):
+        self.y = y
+
+    def __eq__(self, other):
+        if other == None:
+            return False
+        return self.getMember() == other.getMember()
+
+
+    def sameParents(self, other):
+        if other == None:
+            return False
+        if not self.getMother() == other.getMother():
+            return False
+        if not self.getFather() == other.getFather():
+            return False
+        
+        return True
     
     def __repr__(self):
         return "{%s M[%s] F[%s] [%d %d] [%d %d]}" % (self.member, self.mother, self.father, self.x, self.y, self.width, self.height)
