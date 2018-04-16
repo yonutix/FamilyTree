@@ -7,6 +7,8 @@ allMembers = [Member(0, "Alice", "F"), Member(1, "Bob", "M")]
 
 allLinks = [Link(allMembers[0], allMembers[1], "parentOf")]
 
+generalID = 0
+
 def infereChildOf(links):
     for link in links:
         if link.getType() == "parentOf":
@@ -25,6 +27,11 @@ def infereParentOf(links):
 OPTIONS = [
 "parent of",
 "child of"
+]
+
+GENDER_OPTIONS = [
+"M",
+"F"
 ]
 
 window = Tk()
@@ -52,8 +59,7 @@ def onSave():
 def onLoad():
     print("onLoad")
 
-def onAddMember():
-    print("onAddMember")
+
 
 def onSearchMember():
     print("onSearchMember")
@@ -80,8 +86,19 @@ nameTextField = Text(window, height=2, width=20)
 nameTextField.grid(column=0, row = 3)
 
 
-addPCLink = Button(window, text="Add member", command = onAddPCLink)
-addPCLink.grid(column=0, row = 4)
+variable = StringVar(window)
+variable.set(GENDER_OPTIONS[0])
+
+genderType = OptionMenu(window, variable, *GENDER_OPTIONS)
+genderType.grid(column=0, row = 1)
+
+def onAddMember():
+    print("onAddMember" + nameTextField.get("1.0", END))
+    
+
+
+addMemberButton = Button(window, text="Add member", command = onAddMember)
+addMemberButton.grid(column=0, row = 4)
 
 
 
