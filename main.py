@@ -3,9 +3,9 @@ from backend.member import *
 from backend.link import *
 from tkinter import filedialog
 
-allMembers = [Member(0, "Alice", "F"), Member(1, "Bob", "M")]
+allMembers = []
 
-allLinks = [Link(allMembers[0], allMembers[1], "parentOf")]
+allLinks = []
 
 generalID = 0
 
@@ -57,14 +57,49 @@ def onSave():
 
 
 def onLoad():
-    print("onLoad")
+    filename = filedialog.askopenfilename(initialdir = ".",title = "Select file",filetypes = (("txt files","*.txt"),("all files","*.*")))
+
+    with open(filename) as file:
+        content = file.readlines()
+        content = [x.strip() for x in content] 
+        memberLineCount = int(content[0])
+        print(memberLineCount)
+
+        allMembers = []
+        allLinks = []
+        generalID = 0
+
+        for i in range(memberLineCount):
+            print(content[i+1])
+            components = content[i+1].strip(",")
+            name = components[1]
+            gender = components[3]
+
+            allMembers = allMembers + [Member(generalID, name, gender)]
+            generalID = generalID +1
+
+
+        linksLineCount = int(content[memberLineCount+1])
+        print(linksLineCount)
+
+        for i in range(linksLineCount):
+            print(content[memberLineCount + 1 + i + 1])
+            components = content[memberLineCount + 1 + i + 1].strip(",")
+            src = content[0]
+            dest = content[1]
+            t = content[2]
+
+            allLinks = allLinks + [Link(src, dest, t)]
+
+        file.close()
+
 
 
 
 def onSearchMember():
     print("onSearchMember")
 
-def onAddPCLink():
+def onAddLink():
     print("onAddPCLink")
 
 
@@ -80,17 +115,16 @@ loadButton.grid(column=1, row = 0)
 
 
 lastNameTextFieldLabel = Label(window, text="Nume")
-lastNameTextFieldLabel.grid(column=0, row = 2)
-
-nameTextField = Text(window, height=2, width=20)
-nameTextField.grid(column=0, row = 3)
-
+lastNameTextFieldLabel.grid(column=0, row = 1)
 
 variable = StringVar(window)
 variable.set(GENDER_OPTIONS[0])
 
 genderType = OptionMenu(window, variable, *GENDER_OPTIONS)
-genderType.grid(column=0, row = 1)
+genderType.grid(column=0, row = 2)
+
+nameTextField = Text(window, height=2, width=20)
+nameTextField.grid(column=0, row = 3)
 
 def onAddMember():
     print("onAddMember" + nameTextField.get("1.0", END))
@@ -104,43 +138,43 @@ addMemberButton.grid(column=0, row = 4)
 
 
 linkTextFieldLabel = Label(window, text="Legatura")
-linkTextFieldLabel.grid(column=1, columnspan=2, row = 2)
+linkTextFieldLabel.grid(column=1, columnspan=2, row = 1)
 
 variable = StringVar(window)
 variable.set(OPTIONS[0])
 
 linkType = OptionMenu(window, variable, *OPTIONS)
-linkType.grid(column=1, columnspan=2, row = 3)
+linkType.grid(column=1, columnspan=2, row = 2)
 
 
 fromText = Text(window, height=2, width=20)
-fromText.grid(column=1, row = 4)
+fromText.grid(column=1, row = 3)
 
 toText = Text(window, height=2, width=20)
-toText.grid(column=2, row = 4)
+toText.grid(column=2, row = 3)
 
 
-addPCLink = Button(window, text="Add PC Link", command = onAddPCLink)
-addPCLink.grid(column=1, columnspan=2, row = 5)
+addPCLink = Button(window, text="Add PC Link", command = onAddLink)
+addPCLink.grid(column=1, columnspan=2, row = 4)
 
 
 searchIdLabel = Label(window, text="ID")
-searchIdLabel.grid(column=3, row = 1)
+searchIdLabel.grid(column=3, row = 2)
 
 searchIdText = Text(window, height=2, width=20)
-searchIdText.grid(column=3, row = 2)
+searchIdText.grid(column=3, row = 3)
 
 searchmemberButton = Button(window, text="Search member", command = onSearchMember)
-searchmemberButton.grid(column=3, row = 3)
+searchmemberButton.grid(column=3, row = 4)
 
 removeIdLabel = Label(window, text="ID to be removed member")
-removeIdLabel.grid(column=4, row = 1)
+removeIdLabel.grid(column=4, row = 2)
 
 removeIdText = Text(window, height=2, width=20)
-removeIdText.grid(column=4, row = 2)
+removeIdText.grid(column=4, row = 3)
 
 RemoveMemberButton = Button(window, text="Remove member", command = onSearchMember)
-RemoveMemberButton.grid(column=4, row = 3)
+RemoveMemberButton.grid(column=4, row = 4)
 
 
 
