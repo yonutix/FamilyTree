@@ -54,6 +54,8 @@ def onSave():
         file.close()
 
 
+
+
 def onLoad():
     filename = filedialog.askopenfilename(initialdir = ".",title = "Select file",filetypes = (("txt files","*.txt"),("all files","*.*")))
 
@@ -85,7 +87,7 @@ def onLoad():
             src = components[0]
             dest = components[1]
             t = components[2]
-            allLinks = allLinks + [Link(src, dest, t)]
+            allLinks = allLinks + [Link(allMembers[int(src)], allMembers[int(dest)], t)]
 
 
         print("All links " + str(allLinks))
@@ -187,10 +189,12 @@ def onAddLink():
     allLinks = allLinks + [Link(src, dest, linkVariable.get())]
 
     print(allLinks)
+    fromText.delete('1.0', END)
+    toText.delete('1.0', END)
 
 
 
-addPCLink = Button(window, text="Add PC Link", command = onAddLink)
+addPCLink = Button(window, text="Add Link", command = onAddLink)
 addPCLink.grid(column=1, columnspan=2, row = 4)
 
 
