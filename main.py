@@ -36,9 +36,7 @@ GENDER_OPTIONS = [
 
 window = Tk()
 
-allLinks = infereChildOf(allLinks)
 
-allLinks = infereParentOf(allLinks)
 
 
 def onSave():
@@ -73,7 +71,7 @@ def onLoad():
             name = components[1]
             gender = components[2]
             firstName = components[3]
-            
+
             allMembers = allMembers + [Member(generalID, name, gender, firstName)]
             generalID = generalID + 1
 
@@ -123,8 +121,8 @@ nameTextField.grid(column=0, row = 3)
 firstNameTextFieldLabel = Label(window, text="Prenume")
 firstNameTextFieldLabel.grid(column=0, row = 4)
 
-nameTextField = Text(window, height=2, width=20)
-nameTextField.grid(column=0, row = 5)
+firstNameTextField = Text(window, height=2, width=20)
+firstNameTextField.grid(column=0, row = 5)
 
 def onAddMember():
 
@@ -134,13 +132,16 @@ def onAddMember():
     
     localName = localName.replace("\n", "")
 
+    firstName = str(firstNameTextField.get("1.0", END)).replace("\n", "")
+
     global allMembers
 
-    allMembers = allMembers + [Member(generalID, localName, genderVariable.get())]
+    allMembers = allMembers + [Member(generalID, localName, genderVariable.get(), firstName)]
 
     generalID = generalID + 1
     
     nameTextField.delete('1.0', END)
+    firstNameTextField.delete('1.0', END)
 
     print(allMembers)
     
@@ -182,7 +183,6 @@ def onAddLink():
     print("onAddLink")
     src = int(fromText.get("1.0", END).replace("\n", ""))
     dest = int(toText.get("1.0", END).replace("\n", ""))
-    t = linkVariable
     global allLinks
     allLinks = allLinks + [Link(src, dest, linkVariable.get())]
 
@@ -231,5 +231,8 @@ removeChildText.grid(column=6, row = 3)
 removeLinkButton = Button(window, text="Remove link", command = onSearchMember)
 removeLinkButton.grid(column=5, columnspan=2, row = 4)
 
+allLinks = infereChildOf(allLinks)
+
+allLinks = infereParentOf(allLinks)
 
 window.mainloop()

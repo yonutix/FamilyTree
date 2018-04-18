@@ -20,12 +20,12 @@ class Member:
         return self.firstName
 
     def __repr__(self):
-        return "%s[%d] %s" % (self.name, self.id, self.gender)
+        return "[%d] %s %s (%s)" % (self.id, self.name, self.firstName, self.gender)
 
     def __str__(self):
-        return "%s[%d] %s" % (self.name, self.id, self.gender)
+        return "[%d] %s %s (%s)" % (self.id, self.name, self.firstName, self.gender)
 
     def __eq__(self, other):
         if other == None:
             return False
-        return self.id == other.id and self.name == other.name and self.sex == other.sex
+        return self.id == other.id and self.name == other.name and self.gender == other.gender
