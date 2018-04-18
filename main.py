@@ -186,17 +186,18 @@ def onAddLink():
     src = int(fromText.get("1.0", END).replace("\n", ""))
     dest = int(toText.get("1.0", END).replace("\n", ""))
     global allLinks
-    allLinks = allLinks + [Link(src, dest, linkVariable.get())]
+    allLinks = allLinks + [Link(allMembers[int(src)], allMembers[int(dest)], linkVariable.get())]
 
     print(allLinks)
     fromText.delete('1.0', END)
     toText.delete('1.0', END)
 
+    allLinks = infereChildOf(allLinks)
 
+    allLinks = infereParentOf(allLinks)
 
 addPCLink = Button(window, text="Add Link", command = onAddLink)
 addPCLink.grid(column=1, columnspan=2, row = 4)
-
 
 searchIdLabel = Label(window, text="ID")
 searchIdLabel.grid(column=3, row = 2)
@@ -234,9 +235,5 @@ removeChildText.grid(column=6, row = 3)
 
 removeLinkButton = Button(window, text="Remove link", command = onSearchMember)
 removeLinkButton.grid(column=5, columnspan=2, row = 4)
-
-allLinks = infereChildOf(allLinks)
-
-allLinks = infereParentOf(allLinks)
 
 window.mainloop()
