@@ -46,8 +46,8 @@ def onSave():
     if file:
         file.write(str(len(allMembers)) + "\n")
         for member in allMembers:
-            file.write(str(member.getId()) + "," + member.getName() + "," + member.getSex() + "\n")
-            print(str(member.getId()) + "," + member.getName() + "," + member.getSex() + "\n")
+            file.write(str(member.getId()) + "," + member.getName() + "," + member.getGender() + "," + member.getFirstName() + "\n")
+            print(str(member.getId()) + "," + member.getName() + "," + member.getGender() + "," + member.getFirstName() + "\n")
 
         file.write(str(len(allLinks)) + "\n")
         for link in allLinks:
@@ -63,44 +63,39 @@ def onLoad():
         content = file.readlines()
         content = [x.strip() for x in content] 
         memberLineCount = int(content[0])
-        print(memberLineCount)
 
         allMembers = []
         allLinks = []
         generalID = 0
 
         for i in range(memberLineCount):
-            print(content[i+1])
-            components = content[i+1].strip(",")
+            components = content[i+1].split(",")
             name = components[1]
-            gender = components[3]
+            gender = components[2]
+            firstName = components[3]
+            
+            allMembers = allMembers + [Member(generalID, name, gender, firstName)]
+            generalID = generalID + 1
 
-            allMembers = allMembers + [Member(generalID, name, gender)]
-            generalID = generalID +1
+        print("All members " + str(allMembers))
 
 
         linksLineCount = int(content[memberLineCount+1])
-        print(linksLineCount)
 
         for i in range(linksLineCount):
-            print(content[memberLineCount + 1 + i + 1])
-            components = content[memberLineCount + 1 + i + 1].strip(",")
-            src = content[0]
-            dest = content[1]
-            t = content[2]
-
+            components = content[memberLineCount + 1 + i + 1].split(",")
+            src = components[0]
+            dest = components[1]
+            t = components[2]
             allLinks = allLinks + [Link(src, dest, t)]
 
+
+        print("All links " + str(allLinks))
         file.close()
-
-
 
 
 def onSearchMember():
     print("onSearchMember")
-
-def onAddLink():
-    print("onAddPCLink")
 
 
 window.title("Family Tree App")
@@ -112,38 +107,68 @@ saveButton.grid(column=0, row=0)
 loadButton = Button(window, text="Load", command = onLoad)
 loadButton.grid(column=1, row = 0)
 
-
-
 lastNameTextFieldLabel = Label(window, text="Nume")
 lastNameTextFieldLabel.grid(column=0, row = 1)
 
-variable = StringVar(window)
-variable.set(GENDER_OPTIONS[0])
+genderVariable = StringVar(window)
+genderVariable.set(GENDER_OPTIONS[0])
 
-genderType = OptionMenu(window, variable, *GENDER_OPTIONS)
+genderType = OptionMenu(window, genderVariable, *GENDER_OPTIONS)
 genderType.grid(column=0, row = 2)
 
 nameTextField = Text(window, height=2, width=20)
 nameTextField.grid(column=0, row = 3)
 
+
+firstNameTextFieldLabel = Label(window, text="Prenume")
+firstNameTextFieldLabel.grid(column=0, row = 4)
+
+nameTextField = Text(window, height=2, width=20)
+nameTextField.grid(column=0, row = 5)
+
 def onAddMember():
-    print("onAddMember" + nameTextField.get("1.0", END))
+
+    global generalID
+
+    localName = str(nameTextField.get("1.0", END))
     
+    localName = localName.replace("\n", "")
 
+    global allMembers
 
+    allMembers = allMembers + [Member(generalID, localName, genderVariable.get())]
+
+    generalID = generalID + 1
+    
+    nameTextField.delete('1.0', END)
+
+    print(allMembers)
+    
+descriptionTextFieldLabel = Label(window, text="Descriere")
+descriptionTextFieldLabel.grid(column=0, row = 6)
+
+descriptionTextField = Text(window, height=8, width=20)
+descriptionTextField.grid(column=0, row = 7)
+
+def onLoadPicture():
+    filename = filedialog.askopenfilename(initialdir = ".",title = "Select file",filetypes = (("jpg files","*.jpg"),("all files","*.*")))
+
+    with open(filename) as file:
+        content = file.readlines()
+
+loadPictureButton = Button(window, text="Load Picture", command = onLoadPicture)
+loadPictureButton.grid(column=0, row = 8)
+    
 addMemberButton = Button(window, text="Add member", command = onAddMember)
-addMemberButton.grid(column=0, row = 4)
-
-
-
+addMemberButton.grid(column=0, row = 12)
 
 linkTextFieldLabel = Label(window, text="Legatura")
 linkTextFieldLabel.grid(column=1, columnspan=2, row = 1)
 
-variable = StringVar(window)
-variable.set(OPTIONS[0])
+linkVariable = StringVar(window)
+linkVariable.set(OPTIONS[0])
 
-linkType = OptionMenu(window, variable, *OPTIONS)
+linkType = OptionMenu(window, linkVariable, *OPTIONS)
 linkType.grid(column=1, columnspan=2, row = 2)
 
 
@@ -152,6 +177,17 @@ fromText.grid(column=1, row = 3)
 
 toText = Text(window, height=2, width=20)
 toText.grid(column=2, row = 3)
+
+def onAddLink():
+    print("onAddLink")
+    src = int(fromText.get("1.0", END).replace("\n", ""))
+    dest = int(toText.get("1.0", END).replace("\n", ""))
+    t = linkVariable
+    global allLinks
+    allLinks = allLinks + [Link(src, dest, linkVariable.get())]
+
+    print(allLinks)
+
 
 
 addPCLink = Button(window, text="Add PC Link", command = onAddLink)
@@ -175,8 +211,6 @@ removeIdText.grid(column=4, row = 3)
 
 RemoveMemberButton = Button(window, text="Remove member", command = onSearchMember)
 RemoveMemberButton.grid(column=4, row = 4)
-
-
 
 
 removeLinkLabel = Label(window, text="Link to be romved")

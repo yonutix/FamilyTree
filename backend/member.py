@@ -1,11 +1,11 @@
 
 
 class Member:
-    def __init__(self, id, name, sex):
+    def __init__(self, id, name, gender, firstName):
         self.id = id
         self.name = name
-        self.sex = sex
-
+        self.gender = gender
+        self.firstName = firstName
 
     def getId(self):
         return self.id
@@ -13,14 +13,17 @@ class Member:
     def getName(self):
         return self.name
 
-    def getSex(self):
-        return self.sex
+    def getGender(self):
+        return self.gender
+
+    def getFirstName(self):
+        return self.firstName
 
     def __repr__(self):
-        return "%s[%d] %s" % (self.name, self.id, self.sex)
+        return "%s[%d] %s" % (self.name, self.id, self.gender)
 
     def __str__(self):
-        return "%s[%d] %s" % (self.name, self.id, self.sex)
+        return "%s[%d] %s" % (self.name, self.id, self.gender)
 
     def __eq__(self, other):
         if other == None:
