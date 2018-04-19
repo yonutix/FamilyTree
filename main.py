@@ -72,7 +72,7 @@ def onSave():
     if file:
         file.write(str(len(allMembers)) + "\n")
         for member in allMembers:
-            file.write(str(member.getId()) + "," + member.getName() + "," + member.getGender() + "," + member.getFirstName() + "\n")
+            file.write(str(member.getId()) + "," + member.getName() + "," + member.getGender() + "," + member.getFirstName() + "," + member.getImgSrc() +"\n")
             print(str(member.getId()) + "," + member.getName() + "," + member.getGender() + "," + member.getFirstName() + "\n")
 
         file.write(str(len(allLinks)) + "\n")
@@ -87,11 +87,11 @@ def onSave():
 def onLoad():
     global allMembers
     global allLinks
-    global generalId
+    global generalID
 
     allMembers  = []
     allLinks  = []
-    generalID  = 0
+    
 
     filename = filedialog.askopenfilename(initialdir = ".",title = "Select file",filetypes = (("txt files","*.txt"),("all files","*.*")))
 

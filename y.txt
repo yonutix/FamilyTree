@@ -1,4 +1,4 @@
-23
+35
 0,MIHAI,M,Ionut Cosmin,na.png
 1,MIHAI,F,Violeta,na.png
 2,TARCUS,F,Mariana-Luminita,na.png
@@ -22,7 +22,19 @@
 20,TARCUS,F,Nicoleta,na.png
 21,MIHAI,F,Mihaela,na.png
 22,ROSU,F,Ioana,na.png
-30
+23,CAPATANA,M,Emil,na.png
+24,CAPATANA,F,Mariana,na.png
+25,CAPATANA,F,Cosmin,na.png
+26,CAPATANA,F,Andra,na.png
+27,CAPATANA,F,Antoana,na.png
+28,CAPATANA,F,Virgil,na.png
+29,ILIE,M,Vasile,na.png
+30,ILIE,M,Ioana,na.png
+31,GHICA,M,Florea,na.png
+32,GHICA,M,Dumitra,na.png
+33,JIANU,M,Ion,na.png
+34,JIANU,M,Maria,na.png
+42
 3,0,parent of
 2,0,parent of
 2,1,parent of
@@ -53,4 +65,15 @@
 4,20,parent of
 21,22,parent of
 6,21,parent of
-
+23,25,parent of
+23,26,parent of
+24,25,parent of
+24,26,parent of
+27,23,parent of
+28,23,parent of
+29,12,parent of
+30,12,parent of
+31,4,parent of
+32,4,parent of
+33,6,parent of
+34,6,parent of
