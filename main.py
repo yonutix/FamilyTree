@@ -139,7 +139,7 @@ def onSearchMember():
 
 def onRender():
     dot = Digraph(comment='The Round Table', engine='dot', format='png')
-    dot.attr(overlap='false', fixedsize='true', lwidth='50', splines='ortho', nodesep='0.5', image='/home/cosmin/FamilyTree/tile.png')
+    dot.attr(overlap='false', fixedsize='true', lwidth='50', splines='ortho', nodesep='0.75', image='/home/cosmin/FamilyTree/tile.png')
     print("onRender " + str(len(allMembers)))
     
     for member in allMembers:
