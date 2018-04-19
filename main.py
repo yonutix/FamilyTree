@@ -38,17 +38,17 @@ GENDER_OPTIONS = [
 styles = {
     'graph': {
         'label': 'Arbore genealogic',
-        'fontsize': '16',
+        'fontsize': '18',
         'fontcolor': 'white',
-        'bgcolor': '#000000'
+        'bgcolor': '#003333'
     },
     'nodes': {
         'fontname': 'Courier New',
         'shape': 'rectangle',
-        'fontcolor': 'white',
-        'color': 'white',
+        'fontcolor': 'black',
+        'color': 'black',
         'style': 'filled',
-        'fillcolor': '#006699',
+        'fillcolor': '#ffffe6',
     },
     'edges': {
         'color': 'white',
