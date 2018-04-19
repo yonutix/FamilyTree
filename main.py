@@ -2,6 +2,7 @@ from tkinter import *
 from backend.member import *
 from backend.link import *
 from tkinter import filedialog
+from graphviz import Digraph
 
 allMembers = []
 
@@ -34,6 +35,32 @@ GENDER_OPTIONS = [
 "F"
 ]
 
+styles = {
+    'graph': {
+        'label': 'Arbore genealogic',
+        'fontsize': '16',
+        'fontcolor': 'white',
+        'bgcolor': '#000000'
+    },
+    'nodes': {
+        'fontname': 'Courier New',
+        'shape': 'rectangle',
+        'fontcolor': 'white',
+        'color': 'white',
+        'style': 'filled',
+        'fillcolor': '#006699',
+    },
+    'edges': {
+        'color': 'white',
+        'arrowhead': 'open',
+        'fontname': 'Courier',
+        'fontsize': '12',
+        'fontcolor': 'white',
+    }
+}
+
+
+
 window = Tk()
 
 
@@ -57,16 +84,23 @@ def onSave():
 
 
 def onLoad():
+    global allMembers
+    global allLinks
+    global generalId
+
+    allMembers  = []
+    allLinks  = []
+    generalID  = 0
+
     filename = filedialog.askopenfilename(initialdir = ".",title = "Select file",filetypes = (("txt files","*.txt"),("all files","*.*")))
 
-    with open(filename) as file:
+
+    file = open(filename)
+    if not file == None:
         content = file.readlines()
         content = [x.strip() for x in content] 
         memberLineCount = int(content[0])
 
-        allMembers = []
-        allLinks = []
-        generalID = 0
 
         for i in range(memberLineCount):
             components = content[i+1].split(",")
@@ -93,9 +127,42 @@ def onLoad():
         print("All links " + str(allLinks))
         file.close()
 
+        for member in allMembers:
+            #dot.node()
+            print("Label:" + str(member.getLabel()) )
+
 
 def onSearchMember():
     print("onSearchMember")
+
+def onRender():
+    dot = Digraph(comment='The Round Table', engine='dot', format='png')
+    dot.attr(overlap='false', fixedsize='true', lwidth='50', splines='ortho', nodesep='0.5')
+    print("onRender " + str(len(allMembers)))
+    
+    for member in allMembers:
+        dot.node(member.getLabel(), member.getName() + " " + member.getFirstName())
+        print("Label:" + str(member.getLabel()) )
+
+
+    for link in allLinks:
+        dot.edge(link.getSource().getLabel(), link.getDest().getLabel())
+
+    dot.graph_attr.update(
+    ('graph' in styles and styles['graph']) or {}
+    )
+    dot.node_attr.update(
+        ('nodes' in styles and styles['nodes']) or {}
+    )
+    dot.edge_attr.update(
+        ('edges' in styles and styles['edges']) or {}
+    )
+
+    print(dot.source)
+    
+
+    dot.render('test-output/round-table.gv', view=True)
+
 
 
 window.title("Family Tree App")
@@ -106,6 +173,9 @@ saveButton.grid(column=0, row=0)
 
 loadButton = Button(window, text="Load", command = onLoad)
 loadButton.grid(column=1, row = 0)
+
+loadButton = Button(window, text="Render", command = onRender)
+loadButton.grid(column=2, row = 0)
 
 lastNameTextFieldLabel = Label(window, text="Nume")
 lastNameTextFieldLabel.grid(column=0, row = 1)

@@ -1,0 +1,56 @@
+23
+0,MIHAI,M,Ionut Cosmin
+1,MIHAI,F,Violeta
+2,MIHAI,F,Mariana-Luminita
+3,MIHAI,M,Sorin-Adi
+4,TARCUS,F,Ileana
+5,TARCUS,M,Nicolae
+6,MIHAI,M,Ion
+7,CAPATANA,M,Viorica
+8,CAPATANA,M,Cristina
+9,CAPATANA,F,Ana-Maria
+10,CAPATANA,F,Petre
+11,ILIE,M,Stefan Ovidiu
+12,ILIE,M,Stefan
+13,ILIE,M,Mihai
+14,ILIE,M,Denis
+15,ILIE,M,Luciana
+16,COSTACHE,M,Gheorghe
+17,COSTACHE,M,Mihai Georgian
+18,COSTACHE,F,Daniela
+19,COSTACHE,F,Adrian
+20,TARCUS,F,Nicoleta
+21,MIHAI,F,Mihaela
+22,ROSU,F,Ioana
+30
+3,0,parent of
+2,0,parent of
+2,1,parent of
+3,1,parent of
+4,2,parent of
+5,2,parent of
+6,3,parent of
+7,8,parent of
+7,9,parent of
+10,8,parent of
+10,9,parent of
+12,11,parent of
+12,13,parent of
+12,14,parent of
+15,11,parent of
+15,13,parent of
+15,14,parent of
+4,7,parent of
+5,7,parent of
+4,15,parent of
+5,15,parent of
+4,18,parent of
+5,18,parent of
+18,17,parent of
+18,19,parent of
+16,17,parent of
+16,19,parent of
+4,20,parent of
+21,22,parent of
+6,21,parent of
+

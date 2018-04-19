@@ -1,7 +1,14 @@
-5
-0,TARCUS,F,Mariana-Luminita
-1,MIHAI,F,Ionut-Cosmin
-2,MIHAI,F,Sorin-Adi
-3,TARCUS,F,Ileana
-4,TARCUS,F,Nicolae
-0
+6
+0,MIHAI,M,Ionut Cosmin
+1,MIHAI,F,Violeta
+2,MIHAI,F,Mariana-Luminita
+3,MIHAI,M,Sorin-Adi
+4,TARCUS,F,Ileana
+5,TARCUS,M,Nicolae
+6
+3,0,parent of
+2,0,parent of
+2,1,parent of
+3,1,parent of
+4,2,parent of
+5,2,parent of

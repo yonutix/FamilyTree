@@ -19,6 +19,20 @@ class Member:
     def getFirstName(self):
         return self.firstName
 
+
+    def getLabel(self):
+        result = ""
+
+        nr = int(self.id)
+        result = result + chr(int(65 + nr%10))
+        nr = int(nr/10)
+        
+        while nr > 0:
+            result = result + chr(int(65 + nr%10))
+            nr = int(nr/10)
+            print(nr)
+        return result
+
     def __repr__(self):
         return "[%d] %s %s (%s)" % (self.id, self.name, self.firstName, self.gender)
 
