@@ -38,7 +38,8 @@ GENDER_OPTIONS = [
 styles = {
     'graph': {
         'label': 'Arbore genealogic',
-        'fontsize': '18',
+        'labelloc': 'top',
+        'fontsize': '24',
         'fontcolor': 'white',
         'bgcolor': '#003333'
     },
@@ -107,8 +108,9 @@ def onLoad():
             name = components[1]
             gender = components[2]
             firstName = components[3]
+            imgSrc = components[4]
 
-            allMembers = allMembers + [Member(generalID, name, gender, firstName)]
+            allMembers = allMembers + [Member(generalID, name, gender, firstName, imgSrc)]
             generalID = generalID + 1
 
         print("All members " + str(allMembers))
@@ -137,11 +139,20 @@ def onSearchMember():
 
 def onRender():
     dot = Digraph(comment='The Round Table', engine='dot', format='png')
-    dot.attr(overlap='false', fixedsize='true', lwidth='50', splines='ortho', nodesep='0.5')
+    dot.attr(overlap='false', fixedsize='true', lwidth='50', splines='ortho', nodesep='0.5', image='/home/cosmin/FamilyTree/tile.png')
     print("onRender " + str(len(allMembers)))
     
     for member in allMembers:
-        dot.node(member.getLabel(), member.getName() + " " + member.getFirstName())
+        
+
+        thisLabel = '''<<TABLE BORDER="0"><TR> <TD>''' + member.getName() + " " + member.getFirstName() + "</TD></TR>"
+        thisLabel = thisLabel + '''<TR> <TD><IMG SRC="''' + member.getImgSrc() + '''" /></TD> </TR>'''
+        
+        
+        thisLabel = thisLabel + '''<TR> <TD>''' + member.getGender() + '''</TD></TR></TABLE>>'''
+
+
+        dot.node(member.getLabel(), label=thisLabel)
         print("Label:" + str(member.getLabel()) )
 
 

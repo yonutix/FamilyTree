@@ -1,27 +1,27 @@
 23
-0,MIHAI,M,Ionut Cosmin
-1,MIHAI,F,Violeta
-2,MIHAI,F,Mariana-Luminita
-3,MIHAI,M,Sorin-Adi
-4,TARCUS,F,Ileana
-5,TARCUS,M,Nicolae
-6,MIHAI,M,Ion
-7,CAPATANA,M,Viorica
-8,CAPATANA,M,Cristina
-9,CAPATANA,F,Ana-Maria
-10,CAPATANA,F,Petre
-11,ILIE,M,Stefan Ovidiu
-12,ILIE,M,Stefan
-13,ILIE,M,Mihai
-14,ILIE,M,Denis
-15,ILIE,M,Luciana
-16,COSTACHE,M,Gheorghe
-17,COSTACHE,M,Mihai Georgian
-18,COSTACHE,F,Daniela
-19,COSTACHE,F,Adrian
-20,TARCUS,F,Nicoleta
-21,MIHAI,F,Mihaela
-22,ROSU,F,Ioana
+0,MIHAI,M,Ionut Cosmin,na.png
+1,MIHAI,F,Violeta,na.png
+2,TARCUS,F,Mariana-Luminita,na.png
+3,MIHAI,M,Sorin-Adi,na.png
+4,TARCUS,F,Ileana,na.png
+5,TARCUS,M,Nicolae,na.png
+6,MIHAI,M,Ion,na.png
+7,CAPATANA,M,Viorica,na.png
+8,CAPATANA,M,Cristina,na.png
+9,CAPATANA,F,Ana-Maria,na.png
+10,CAPATANA,F,Petre,na.png
+11,ILIE,M,Stefan Ovidiu,na.png
+12,ILIE,M,Stefan,na.png
+13,ILIE,M,Mihai,na.png
+14,ILIE,M,Denis,na.png
+15,ILIE,M,Luciana,na.png
+16,COSTACHE,M,Gheorghe,na.png
+17,COSTACHE,M,Mihai Georgian,na.png
+18,COSTACHE,F,Daniela,na.png
+19,COSTACHE,F,Adrian,na.png
+20,TARCUS,F,Nicoleta,na.png
+21,MIHAI,F,Mihaela,na.png
+22,ROSU,F,Ioana,na.png
 30
 3,0,parent of
 2,0,parent of

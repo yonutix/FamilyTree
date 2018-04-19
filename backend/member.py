@@ -1,11 +1,12 @@
 
 
 class Member:
-    def __init__(self, id, name, gender, firstName):
+    def __init__(self, id, name, gender, firstName, imgSrc="na.png"):
         self.id = id
         self.name = name
         self.gender = gender
         self.firstName = firstName
+        self.imgSrc = imgSrc
 
     def getId(self):
         return self.id
@@ -19,6 +20,8 @@ class Member:
     def getFirstName(self):
         return self.firstName
 
+    def getImgSrc(self):
+        return self.imgSrc
 
     def getLabel(self):
         result = ""
