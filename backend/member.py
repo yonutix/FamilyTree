@@ -1,12 +1,13 @@
-
+import datetime
 
 class Member:
-    def __init__(self, id, name, gender, firstName, imgSrc="na.png"):
+    def __init__(self, id, name, gender, firstName, imgSrc="na.png", birthDate = None):
         self.id = id
         self.name = name
         self.gender = gender
         self.firstName = firstName
         self.imgSrc = imgSrc
+        self.birthDate = birthDate
 
     def getId(self):
         return self.id
@@ -22,6 +23,9 @@ class Member:
 
     def getImgSrc(self):
         return self.imgSrc
+
+    def getBirthDate(self):
+        return self.birthDate
 
     def getLabel(self):
         result = ""

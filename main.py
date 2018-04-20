@@ -27,7 +27,9 @@ def infereParentOf(links):
 
 OPTIONS = [
 "parent of",
-"child of"
+"child of",
+"married to",
+"divorced to",
 ]
 
 GENDER_OPTIONS = [
@@ -39,9 +41,10 @@ styles = {
     'graph': {
         'label': 'Arbore genealogic',
         'labelloc': 'top',
-        'fontsize': '24',
+        'fontsize': '48',
         'fontcolor': 'white',
-        'bgcolor': '#003333'
+        'bgcolor': '#003333',
+        
     },
     'nodes': {
         'fontname': 'Courier New',
@@ -57,6 +60,8 @@ styles = {
         'fontname': 'Courier',
         'fontsize': '12',
         'fontcolor': 'white',
+        'penwidth': '3',
+        'arrowsize': "3"
     }
 }
 
@@ -109,8 +114,12 @@ def onLoad():
             gender = components[2]
             firstName = components[3]
             imgSrc = components[4]
-
-            allMembers = allMembers + [Member(generalID, name, gender, firstName, imgSrc)]
+            if components[5] == "NA":
+                allMembers = allMembers + [Member(generalID, name, gender, firstName, imgSrc)]
+            else:
+                allMembers = allMembers + [Member(generalID, name, gender, firstName, imgSrc, 
+                    datetime.date(year=int(components[5]), month = int(components[6]), day = int(components[7])))]
+            
             generalID = generalID + 1
 
         print("All members " + str(allMembers))
@@ -123,7 +132,10 @@ def onLoad():
             src = components[0]
             dest = components[1]
             t = components[2]
-            allLinks = allLinks + [Link(allMembers[int(src)], allMembers[int(dest)], t)]
+            if len(components) > 3:
+                allLinks = allLinks + [Link(allMembers[int(src)], allMembers[int(dest)], t, components[3])]
+            else:
+                allLinks = allLinks + [Link(allMembers[int(src)], allMembers[int(dest)], t)]
 
 
         print("All links " + str(allLinks))
@@ -139,25 +151,24 @@ def onSearchMember():
 
 def onRender():
     dot = Digraph(comment='The Round Table', engine='dot', format='png')
-    dot.attr(overlap='false', fixedsize='true', lwidth='50', splines='ortho', nodesep='0.75', image='/home/cosmin/FamilyTree/tile.png')
+    dot.attr(overlap='false', fixedsize='true', lwidth='50', splines='ortho', ranksep="2",pad="2", nodesep='1.5', image='/home/cosmin/FamilyTree/tile.png')
     print("onRender " + str(len(allMembers)))
     
     for member in allMembers:
-        
+        birthDate = ""
+        if member.getBirthDate():
+            birthDate = str(member.getBirthDate())
 
         thisLabel = '''<<TABLE BORDER="0"><TR> <TD>''' + member.getName() + " " + member.getFirstName() + "</TD></TR>"
         thisLabel = thisLabel + '''<TR> <TD><IMG SRC="''' + member.getImgSrc() + '''" /></TD> </TR>'''
         
         
-        thisLabel = thisLabel + '''<TR> <TD>''' + member.getGender() + '''</TD></TR></TABLE>>'''
+        thisLabel = thisLabel + '''<TR> <TD>''' + "GEN:" + member.getGender() + "<BR />B:" + birthDate + '''</TD></TR></TABLE>>'''
 
 
         dot.node(member.getLabel(), label=thisLabel)
         print("Label:" + str(member.getLabel()) )
 
-
-    for link in allLinks:
-        dot.edge(link.getSource().getLabel(), link.getDest().getLabel())
 
     dot.graph_attr.update(
     ('graph' in styles and styles['graph']) or {}
@@ -165,9 +176,15 @@ def onRender():
     dot.node_attr.update(
         ('nodes' in styles and styles['nodes']) or {}
     )
-    dot.edge_attr.update(
-        ('edges' in styles and styles['edges']) or {}
-    )
+    dot.edge_attr.update(('edges' in styles and styles['edges']) or {})
+
+    for link in allLinks:
+        if link.getType() == "parent of":
+            dot.edge(link.getSource().getLabel(), link.getDest().getLabel(), link.getAttr())
+        if link.getType() == "married to":
+            dot.edge(link.getSource().getLabel(), link.getDest().getLabel(), link.getAttr(), arrowhead='none', arrowsize='1', color='red')
+        if link.getType() == "divorced to":
+            dot.edge(link.getSource().getLabel(), link.getDest().getLabel(), link.getAttr(), style='dashed', arrowhead='none', arrowsize='1', color='red')
 
     print(dot.source)
     
@@ -185,8 +202,8 @@ saveButton.grid(column=0, row=0)
 loadButton = Button(window, text="Load", command = onLoad)
 loadButton.grid(column=1, row = 0)
 
-loadButton = Button(window, text="Render", command = onRender)
-loadButton.grid(column=2, row = 0)
+renderButton = Button(window, text="Render", command = onRender)
+renderButton.grid(column=2, row = 0)
 
 lastNameTextFieldLabel = Label(window, text="Nume")
 lastNameTextFieldLabel.grid(column=0, row = 1)

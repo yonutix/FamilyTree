@@ -2,10 +2,11 @@
 
 class Link:
 
-    def __init__(self, a, b, t):
+    def __init__(self, a, b, t, attr = ""):
         self.source = a
         self.dest = b
         self.t = t
+        self.attr = attr
 
     def getSource(self):
         return self.source
@@ -16,6 +17,9 @@ class Link:
     def getType(self):
         return self.t
 
+    def getAttr(self):
+        return self.attr
+        
     def __repr__(self):
         return "Link <%s(%s) = %s)>" % (self.t, self.source, self.dest)
 
