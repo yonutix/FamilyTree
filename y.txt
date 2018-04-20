@@ -1,31 +1,31 @@
-35
-0,MIHAI,M,Ionut Cosmin,na.png,1991,11,25
-1,MIHAI,F,Violeta,na.png,2002,11,11
+38
+0,MIHAI,M,Ionut Cosmin,img/cosmin_mihai.png,1991,11,25
+1,MIHAI,F,Violeta,img/violeta_mihai.png,2002,11,11
 2,TARCUS,F,Mariana-Luminita,na.png,1967,6,30
 3,MIHAI,M,Sorin-Adi,na.png,1965,9,11
 4,TARCUS,F,Ileana,na.png,1934,6,22
 5,TARCUS,M,Nicolae,na.png,1936,11,26
 6,MIHAI,M,Ion,na.png,NA,NA,NA
 7,CAPATANA,M,Viorica,na.png,NA,NA,NA
-8,CAPATANA,M,Cristina,na.png,1993,6,7
-9,CAPATANA,F,Ana-Maria,na.png,NA,NA,NA
+8,CAPATANA,M,Cristina,img/cristina_elena_capatana.png,1993,6,7
+9,CAPATANA,F,Ana-Maria,img/capatana_ana_maria.png,NA,NA,NA
 10,CAPATANA,F,Petre,na.png,NA,NA,NA
-11,ILIE,M,Stefan Ovidiu,na.png,1992,1,1
+11,ILIE,M,Stefan Ovidiu,img/stefan_ovidiu_ilie.png,1992,1,1
 12,ILIE,M,Stefan,na.png,NA,NA,NA
 13,ILIE,M,Mihai,na.png,NA,NA,NA
-14,ILIE,M,Denis,na.png,NA,NA,NA
+14,ILIE,M,Denis,img/denis_ilie.png,NA,NA,NA
 15,ILIE,M,Luciana,na.png,NA,NA,NA
 16,COSTACHE,M,Gheorghe,na.png,NA,NA,NA
-17,COSTACHE,M,Mihai Georgian,na.png,1987,11,20
+17,COSTACHE,M,Mihai Georgian,img/mihai_georgian_costache.png,1987,11,20
 18,COSTACHE,F,Daniela,na.png,NA,NA,NA
-19,COSTACHE,F,Adrian,na.png,1992,1,27
+19,COSTACHE,F,Adrian,img/adrian_costache.png,1992,1,27
 20,TARCUS,F,Nicoleta,na.png,NA,NA,NA
 21,MIHAI,F,Mihaela,na.png,NA,NA,NA
-22,ROSU,F,Ioana,na.png,NA,NA,NA
+22,ROSU,F,Ioana,img/ioana_denisa_rosu.png,NA,NA,NA
 23,CAPATANA,M,Emil,na.png,NA,NA,NA
-24,CAPATANA,F,Mariana,na.png,NA,NA,NA
-25,CAPATANA,F,Cosmin,na.png,NA,NA,NA
-26,CAPATANA,F,Andra,na.png,NA,NA,NA
+24,CAPATANA,F,Mariana,img/mariana_capatana.png,NA,NA,NA
+25,CAPATANA,F,Cosmin,img/cosmin_emilian_capatana.png,NA,NA,NA
+26,CAPATANA,F,Andra,img/andra_capatana.png,NA,NA,NA
 27,CAPATANA,F,Antoana,na.png,NA,NA,NA
 28,CAPATANA,F,Virgil,na.png,NA,NA,NA
 29,ILIE,M,Vasile,na.png,NA,NA,NA
@@ -34,7 +34,10 @@
 32,GHICA,M,Dumitra,na.png,NA,NA,NA
 33,JIANU,M,Ion,na.png,NA,NA,NA
 34,JIANU,M,Maria,na.png,NA,NA,NA
-44
+35,COSTACHE,M,Dumitru,na.png,NA,NA,NA
+36,COSTACHE,M,Radu,na.png,NA,NA,NA
+37,COSTACHE,F,Georgica,na.png,NA,NA,NA
+48
 3,0,parent of
 2,0,parent of
 2,1,parent of
@@ -77,5 +80,9 @@
 32,4,parent of
 33,6,parent of
 34,6,parent of
+27,10,parent of
+28,10,parent of
+35,36,parent of
+35,16,parent of
 7,10,married to
 2,3,divorced to

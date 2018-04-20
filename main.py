@@ -39,29 +39,28 @@ GENDER_OPTIONS = [
 
 styles = {
     'graph': {
-        'label': 'Arbore genealogic',
+        'label': 'Natura nihil frustra facit',
         'labelloc': 'top',
         'fontsize': '48',
-        'fontcolor': 'white',
-        'bgcolor': '#003333',
-        
+        'fontcolor': 'black',
+        'bgcolor': '#f1ebb9'
     },
     'nodes': {
         'fontname': 'Courier New',
         'shape': 'rectangle',
         'fontcolor': 'black',
         'color': 'black',
-        'style': 'filled',
-        'fillcolor': '#ffffe6',
     },
     'edges': {
         'color': 'white',
         'arrowhead': 'open',
         'fontname': 'Courier',
         'fontsize': '12',
-        'fontcolor': 'white',
+        'fontcolor': 'black',
+        'color':'black'
         'penwidth': '3',
         'arrowsize': "3"
+
     }
 }
 
