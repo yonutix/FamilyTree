@@ -1,4 +1,4 @@
-38
+59
 0,MIHAI,M,Ionut Cosmin,img/cosmin_mihai.png,1991,11,25
 1,MIHAI,F,Violeta,img/violeta_mihai.png,2002,11,11
 2,TARCUS,F,Mariana-Luminita,na.png,1967,6,30
@@ -37,7 +37,28 @@
 35,COSTACHE,M,Dumitru,na.png,NA,NA,NA
 36,COSTACHE,M,Radu,na.png,NA,NA,NA
 37,COSTACHE,F,Georgica,na.png,NA,NA,NA
-46
+38,COSTACHE,F,Alina,na.png,NA,NA,NA
+39,GHICA,F,Floarea,na.png,NA,NA,NA
+40,STATE,F,Maria,na.png,NA,NA,NA
+41,STATE,F,Ion,na.png,NA,NA,NA
+42,MANOLESCU,F,Ioana,na.png,NA,NA,NA
+43,MANOLESCU,F,Ion,na.png,NA,NA,NA
+44,MANOLESCU,F,Olga,na.png,NA,NA,NA
+45,MANOLESCU,F,Ana,na.png,NA,NA,NA
+46,MANOLESCU,F,Constantin,na.png,NA,NA,NA
+47,MANOLESCU,F,Ion,na.png,NA,NA,NA
+48,GHICA,F,Gheorghe,na.png,NA,NA,NA
+49,GHICA,F,Ilie,na.png,NA,NA,NA
+50,GHICA,F,Floarea,na.png,NA,NA,NA
+51,GHICA,F,Sergiu,na.png,NA,NA,NA
+52,GHICA,F,Camelia,na.png,NA,NA,NA
+53,GHICA,F,Iulian,na.png,NA,NA,NA
+54,GHICA,F,Ion,na.png,NA,NA,NA
+55,GHICA,F,Ion,na.png,NA,NA,NA
+56,GHICA,F,Rodica,na.png,NA,NA,NA
+57,GHICA,F,COSTEL,na.png,NA,NA,NA
+58,MANOLESCU,F,Liliana,na.png,NA,NA,NA
+62
 3,0,parent of
 2,0,parent of
 2,1,parent of
@@ -84,3 +105,19 @@
 28,10,parent of
 35,36,parent of
 35,16,parent of
+36,38,parent of
+37,38,parent of
+31,42,parent of
+31,57,parent of
+31,40,parent of
+31,39,parent of
+31,48,parent of
+31,49,parent of
+31,55,parent of
+32,42,parent of
+32,57,parent of
+32,40,parent of
+32,39,parent of
+32,48,parent of
+32,49,parent of
+32,55,parent of
