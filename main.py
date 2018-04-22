@@ -57,7 +57,7 @@ styles = {
         'fontname': 'Courier',
         'fontsize': '12',
         'fontcolor': 'black',
-        'color':'black'
+        'color':'black',
         'penwidth': '3',
         'arrowsize': "3"
 
@@ -76,7 +76,23 @@ def onSave():
     if file:
         file.write(str(len(allMembers)) + "\n")
         for member in allMembers:
-            file.write(str(member.getId()) + "," + member.getName() + "," + member.getGender() + "," + member.getFirstName() + "," + member.getImgSrc() +"\n")
+            dateStr = ","
+            if member.getBirthDate():
+                dateStr = dateStr + str(member.getBirthDate().year)
+            else:
+                dateStr = dateStr + "NA"
+            dateStr = dateStr + ","
+            if member.getBirthDate():
+                dateStr = dateStr + str(member.getBirthDate().month)
+            else:
+                dateStr = dateStr + "NA"
+            dateStr = dateStr + ","
+            if member.getBirthDate():
+                dateStr = dateStr +str( member.getBirthDate().day)
+            else:
+                dateStr = dateStr + "NA"
+
+            file.write(str(member.getId()) + "," + member.getName() + "," + member.getGender() + "," + member.getFirstName() + "," + member.getImgSrc() + dateStr + "\n")
             print(str(member.getId()) + "," + member.getName() + "," + member.getGender() + "," + member.getFirstName() + "\n")
 
         file.write(str(len(allLinks)) + "\n")

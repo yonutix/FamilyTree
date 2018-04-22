@@ -37,7 +37,7 @@
 35,COSTACHE,M,Dumitru,na.png,NA,NA,NA
 36,COSTACHE,M,Radu,na.png,NA,NA,NA
 37,COSTACHE,F,Georgica,na.png,NA,NA,NA
-48
+46
 3,0,parent of
 2,0,parent of
 2,1,parent of
@@ -84,5 +84,3 @@
 28,10,parent of
 35,36,parent of
 35,16,parent of
-7,10,married to
-2,3,divorced to
