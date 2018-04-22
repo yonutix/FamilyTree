@@ -1,4 +1,4 @@
-59
+63
 0,MIHAI,M,Ionut Cosmin,img/cosmin_mihai.png,1991,11,25
 1,MIHAI,F,Violeta,img/violeta_mihai.png,2002,11,11
 2,TARCUS,F,Mariana-Luminita,na.png,1967,6,30
@@ -58,7 +58,11 @@
 56,GHICA,F,Rodica,na.png,NA,NA,NA
 57,GHICA,F,COSTEL,na.png,NA,NA,NA
 58,MANOLESCU,F,Liliana,na.png,NA,NA,NA
-62
+59,PARVAN,F,Gina,na.png,NA,NA,NA
+60,PARVAN,M,Dumitru,na.png,NA,NA,NA
+61,PARVAN,M,Nicoleta,na.png,NA,NA,NA
+62,PARVAN,M,Ianos,na.png,NA,NA,NA
+84
 3,0,parent of
 2,0,parent of
 2,1,parent of
@@ -121,3 +125,25 @@
 32,48,parent of
 32,49,parent of
 32,55,parent of
+42,44,parent of
+42,45,parent of
+42,46,parent of
+42,47,parent of
+43,44,parent of
+43,45,parent of
+43,46,parent of
+43,47,parent of
+49,51,parent of
+49,52,parent of
+49,53,parent of
+49,54,parent of
+50,51,parent of
+50,52,parent of
+50,53,parent of
+50,54,parent of
+27,59,parent of
+28,59,parent of
+59,61,parent of
+59,62,parent of
+60,61,parent of
+60,62,parent of
