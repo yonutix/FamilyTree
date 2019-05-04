@@ -39,7 +39,7 @@ GENDER_OPTIONS = [
 
 styles = {
     'graph': {
-        'label': 'Natura nihil frustra facit',
+        'label': 'Omnes qui',
         'labelloc': 'top',
         'fontsize': '48',
         'fontcolor': 'black',
@@ -165,9 +165,11 @@ def onSearchMember():
     print("onSearchMember")
 
 def onRender():
+    print("Start on render")
     dot = Digraph(comment='The Round Table', engine='dot', format='png')
-    dot.attr(overlap='false', fixedsize='true', lwidth='50', splines='ortho', ranksep="2",pad="2", nodesep='1.5', image='/home/cosmin/FamilyTree/tile.png')
+    dot.attr(overlap='false', fixedsize='true', lwidth='50', ranksep="4",pad="1", nodesep='2', image='tile.png', dimen='3')
     print("onRender " + str(len(allMembers)))
+    
     
     for member in allMembers:
         birthDate = ""
@@ -182,7 +184,7 @@ def onRender():
 
 
         dot.node(member.getLabel(), label=thisLabel)
-        print("Label:" + str(member.getLabel()) )
+        #print("Label:" + str(member.getLabel()) )
 
 
     dot.graph_attr.update(
@@ -201,7 +203,7 @@ def onRender():
         if link.getType() == "divorced to":
             dot.edge(link.getSource().getLabel(), link.getDest().getLabel(), link.getAttr(), style='dashed', arrowhead='none', arrowsize='1', color='red')
 
-    print(dot.source)
+    #print(dot.source)
     
 
     dot.render('test-output/round-table.gv', view=True)

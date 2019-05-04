@@ -1,4 +1,4 @@
-63
+67
 0,MIHAI,M,Ionut Cosmin,img/cosmin_mihai.png,1991,11,25
 1,MIHAI,F,Violeta,img/violeta_mihai.png,2002,11,11
 2,TARCUS,F,Mariana-Luminita,na.png,1967,6,30
@@ -12,7 +12,7 @@
 10,CAPATANA,F,Petre,na.png,NA,NA,NA
 11,ILIE,M,Stefan Ovidiu,img/stefan_ovidiu_ilie.png,1992,1,1
 12,ILIE,M,Stefan,na.png,NA,NA,NA
-13,ILIE,M,Mihai,na.png,NA,NA,NA
+13,ILIE,M,Mihai,img/mihai_ilie.jpg,NA,NA,NA
 14,ILIE,M,Denis,img/denis_ilie.png,NA,NA,NA
 15,ILIE,M,Luciana,na.png,NA,NA,NA
 16,COSTACHE,M,Gheorghe,na.png,NA,NA,NA
@@ -62,7 +62,11 @@
 60,PARVAN,M,Dumitru,na.png,NA,NA,NA
 61,PARVAN,M,Nicoleta,na.png,NA,NA,NA
 62,PARVAN,M,Ianos,na.png,NA,NA,NA
-84
+63,Grigorescu,F,Raluca-Elena,img/raluca_grigorescu.jpg,NA,NA,NA
+64,Grigorescu,F,Dan,img/dan_grigorescu.jpg,NA,NA,NA
+65,Grigorescu,F,Ileana,img/ileana_grigorescu.jpg,NA,NA,NA
+66,COSTACHE,F,Daniela,img/costache_daniela.jpg,NA,NA,NA
+87
 3,0,parent of
 2,0,parent of
 2,1,parent of
@@ -91,6 +95,7 @@
 16,17,parent of
 16,19,parent of
 4,20,parent of
+5,20,parent of
 21,22,parent of
 6,21,parent of
 23,25,parent of
@@ -147,3 +152,5 @@
 59,62,parent of
 60,61,parent of
 60,62,parent of
+64,63,parent of
+65,63,parent of
