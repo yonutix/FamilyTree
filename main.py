@@ -39,11 +39,11 @@ GENDER_OPTIONS = [
 
 styles = {
     'graph': {
-        'label': 'Omnes qui',
+        'label': 'Arbore Genealogic',
         'labelloc': 'top',
         'fontsize': '48',
         'fontcolor': 'black',
-        'bgcolor': '#f1ebb9'
+        'bgcolor': '#ffffff'
     },
     'nodes': {
         'fontname': 'Courier New',
@@ -100,6 +100,8 @@ def onSave():
             file.write(str(link.getSource().getId()) + "," + str(link.getDest().getId()) + ","+ link.getType() + "\n")
             print(str(link.getSource().getId()) + "," + str(link.getDest().getId()) + ","+ link.getType() + "\n")
         file.close()
+    else:
+        print("On Save error")
 
 
 
@@ -130,9 +132,9 @@ def onLoad():
             firstName = components[3]
             imgSrc = components[4]
             if components[5] == "NA":
-                allMembers = allMembers + [Member(generalID, name, gender, firstName, imgSrc)]
+                allMembers = allMembers + [Member(generalID, name, gender, firstName,  imgSrc)]
             else:
-                allMembers = allMembers + [Member(generalID, name, gender, firstName, imgSrc, 
+                allMembers = allMembers + [Member(generalID, name, gender, firstName,  imgSrc,
                     datetime.date(year=int(components[5]), month = int(components[6]), day = int(components[7])))]
             
             generalID = generalID + 1
@@ -166,8 +168,10 @@ def onSearchMember():
 
 def onRender():
     print("Start on render")
-    dot = Digraph(comment='The Round Table', engine='dot', format='png')
-    dot.attr(overlap='false', fixedsize='true', lwidth='50', ranksep="4",pad="1", nodesep='2', image='tile.png', dimen='3')
+    dot = Digraph(comment='The Round Table', engine='twopi', format='pdf')
+    #dot.attr(overlap='false', fixedsize='true', lwidth='50', ranksep="2",pad="1", nodesep='2', image='tile.png', dimen='3')
+
+    dot.attr(overlap='false', fixedsize='true', lwidth='50', ranksep="3", pad="1", nodesep='2', image='tile.png', dimen='3')
     print("onRender " + str(len(allMembers)))
     
     

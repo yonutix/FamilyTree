@@ -1,4 +1,5 @@
 import datetime
+import os
 
 class Member:
     def __init__(self, id, name, gender, firstName, imgSrc="na.png", birthDate = None):
