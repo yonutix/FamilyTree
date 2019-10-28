@@ -168,7 +168,8 @@ def onSearchMember():
 
 def onRender():
     print("Start on render")
-    dot = Digraph(comment='The Round Table', engine='twopi', format='pdf')
+    #twopi
+    dot = Digraph(comment='The Round Table', engine='dot', format='pdf')
     #dot.attr(overlap='false', fixedsize='true', lwidth='50', ranksep="2",pad="1", nodesep='2', image='tile.png', dimen='3')
 
     dot.attr(overlap='false', fixedsize='true', lwidth='50', ranksep="3", pad="1", nodesep='2', image='tile.png', dimen='3')
