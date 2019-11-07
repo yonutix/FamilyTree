@@ -3,6 +3,9 @@ from backend.member import *
 from backend.link import *
 from tkinter import filedialog
 from graphviz import Digraph
+import argparse
+
+import os
 
 allMembers = []
 
@@ -39,11 +42,11 @@ GENDER_OPTIONS = [
 
 styles = {
     'graph': {
-        'label': 'Arbore Genealogic',
+        'label': 'Omnes qui',
         'labelloc': 'top',
         'fontsize': '48',
         'fontcolor': 'black',
-        'bgcolor': '#ffffff'
+        'bgcolor': '#f1ebb9'
     },
     'nodes': {
         'fontname': 'Courier New',
@@ -64,15 +67,53 @@ styles = {
     }
 }
 
+def onLoad(filename):
+    global allMembers
+    global allLinks
+    global generalID
+
+    allMembers  = []
+    allLinks  = []
+
+    file = open(filename)
+    if file:
+        print("Loading " + filename)
+        content = file.readlines()
+        content = [x.strip() for x in content] 
+        memberLineCount = int(content[0])
 
 
-window = Tk()
+        for i in range(memberLineCount):
+            components = content[i+1].split(",")
+            name = components[1]
+            gender = components[2]
+            firstName = components[3]
+            imgSrc = components[4]
+            if components[5] == "NA":
+                allMembers = allMembers + [Member(generalID, name, gender, firstName, imgSrc)]
+            else:
+                allMembers = allMembers + [Member(generalID, name, gender, firstName, imgSrc, 
+                    datetime.date(year=int(components[5]), month = int(components[6]), day = int(components[7])))]
+            
+            generalID = generalID + 1
 
+        linksLineCount = int(content[memberLineCount+1])
 
+        for i in range(linksLineCount):
+            components = content[memberLineCount + 1 + i + 1].split(",")
+            src = components[0]
+            dest = components[1]
+            t = components[2]
+            if len(components) > 3:
+                allLinks = allLinks + [Link(allMembers[int(src)], allMembers[int(dest)], t, components[3])]
+            else:
+                allLinks = allLinks + [Link(allMembers[int(src)], allMembers[int(dest)], t)]
 
+        file.close()
+    else:
+        print("Could not load " + filename)
 
-def onSave():
-    file = filedialog.asksaveasfile(mode='w', defaultextension=".txt")
+def save(file):
     if file:
         file.write(str(len(allMembers)) + "\n")
         for member in allMembers:
@@ -93,74 +134,65 @@ def onSave():
                 dateStr = dateStr + "NA"
 
             file.write(str(member.getId()) + "," + member.getName() + "," + member.getGender() + "," + member.getFirstName() + "," + member.getImgSrc() + dateStr + "\n")
-            print(str(member.getId()) + "," + member.getName() + "," + member.getGender() + "," + member.getFirstName() + "\n")
 
         file.write(str(len(allLinks)) + "\n")
         for link in allLinks:
             file.write(str(link.getSource().getId()) + "," + str(link.getDest().getId()) + ","+ link.getType() + "\n")
-            print(str(link.getSource().getId()) + "," + str(link.getDest().getId()) + ","+ link.getType() + "\n")
         file.close()
-    else:
-        print("On Save error")
 
 
+def searchByName(name):
+	nameList = []
+	for member in allMembers:
+		if name.lower() in member.getName().lower():
+			nameList.append(member)
+	return nameList
 
+def addMember(firstName, lastName, gender):
 
-def onLoad():
-    global allMembers
-    global allLinks
     global generalID
 
-    allMembers  = []
-    allLinks  = []
-    
+    global allMembers
 
+    allMembers = allMembers + [Member(generalID, firstName, gender, lastName)]
+
+    generalID = generalID + 1
+
+
+def addLink(fromID, toID, relType):
+    #TODO: sanity check
+    global allLinks
+    allLinks = allLinks + [Link(allMembers[int(fromID)], allMembers[int(toID)], relType)]
+
+    allLinks = infereChildOf(allLinks)
+
+    allLinks = infereParentOf(allLinks)
+
+def exportDotFile(filename):
+    print("Export dot file")
+    f = open(filename,"w")
+    f.write("digraph {\n")
+
+
+    for member in allMembers:
+        f.write("" + member.getLabel() +" [label=\"" + member.getFirstName() + " " + member.getName() + "\"]" ";\n")
+    for link in allLinks:
+        if link.getType() == "parent of":
+            f.write("    " + link.getSource().getLabel() + " -> " + link.getDest().getLabel() + ";\n")
+
+    f.write("}\n")
+    f.close()
+
+def onSaveButton():
+    file = filedialog.asksaveasfile(mode='w', defaultextension=".txt")
+    save(file)
+
+
+
+def onLoadButton():
     filename = filedialog.askopenfilename(initialdir = ".",title = "Select file",filetypes = (("txt files","*.txt"),("all files","*.*")))
 
-
-    file = open(filename)
-    if not file == None:
-        content = file.readlines()
-        content = [x.strip() for x in content] 
-        memberLineCount = int(content[0])
-
-
-        for i in range(memberLineCount):
-            components = content[i+1].split(",")
-            name = components[1]
-            gender = components[2]
-            firstName = components[3]
-            imgSrc = components[4]
-            if components[5] == "NA":
-                allMembers = allMembers + [Member(generalID, name, gender, firstName,  imgSrc)]
-            else:
-                allMembers = allMembers + [Member(generalID, name, gender, firstName,  imgSrc,
-                    datetime.date(year=int(components[5]), month = int(components[6]), day = int(components[7])))]
-            
-            generalID = generalID + 1
-
-        print("All members " + str(allMembers))
-
-
-        linksLineCount = int(content[memberLineCount+1])
-
-        for i in range(linksLineCount):
-            components = content[memberLineCount + 1 + i + 1].split(",")
-            src = components[0]
-            dest = components[1]
-            t = components[2]
-            if len(components) > 3:
-                allLinks = allLinks + [Link(allMembers[int(src)], allMembers[int(dest)], t, components[3])]
-            else:
-                allLinks = allLinks + [Link(allMembers[int(src)], allMembers[int(dest)], t)]
-
-
-        print("All links " + str(allLinks))
-        file.close()
-
-        for member in allMembers:
-            #dot.node()
-            print("Label:" + str(member.getLabel()) )
+    onLoad(filename)
 
 
 def onSearchMember():
@@ -168,11 +200,8 @@ def onSearchMember():
 
 def onRender():
     print("Start on render")
-    #twopi
-    dot = Digraph(comment='The Round Table', engine='dot', format='pdf')
-    #dot.attr(overlap='false', fixedsize='true', lwidth='50', ranksep="2",pad="1", nodesep='2', image='tile.png', dimen='3')
-
-    dot.attr(overlap='false', fixedsize='true', lwidth='50', ranksep="3", pad="1", nodesep='2', image='tile.png', dimen='3')
+    dot = Digraph(comment='The Round Table', engine='dot', format='png')
+    dot.attr(overlap='false', fixedsize='true', lwidth='50', ranksep="4",pad="1", nodesep='2', image='tile.png', dimen='3')
     print("onRender " + str(len(allMembers)))
     
     
@@ -180,10 +209,10 @@ def onRender():
         birthDate = ""
         if member.getBirthDate():
             birthDate = str(member.getBirthDate())
-
+        print(member.getImgSrc())
         thisLabel = '''<<TABLE BORDER="0"><TR> <TD>''' + member.getName() + " " + member.getFirstName() + "</TD></TR>"
         thisLabel = thisLabel + '''<TR> <TD><IMG SRC="''' + member.getImgSrc() + '''" /></TD> </TR>'''
-        
+        print(os.path.dirname(os.path.realpath(__file__)))
         
         thisLabel = thisLabel + '''<TR> <TD>''' + "GEN:" + member.getGender() + "<BR />B:" + birthDate + '''</TD></TR></TABLE>>'''
 
@@ -214,39 +243,7 @@ def onRender():
     dot.render('test-output/round-table.gv', view=True)
 
 
-
-window.title("Family Tree App")
-window.geometry('1280x720')
-
-saveButton = Button(window, text="Save", command = onSave)
-saveButton.grid(column=0, row=0)
-
-loadButton = Button(window, text="Load", command = onLoad)
-loadButton.grid(column=1, row = 0)
-
-renderButton = Button(window, text="Render", command = onRender)
-renderButton.grid(column=2, row = 0)
-
-lastNameTextFieldLabel = Label(window, text="Nume")
-lastNameTextFieldLabel.grid(column=0, row = 1)
-
-genderVariable = StringVar(window)
-genderVariable.set(GENDER_OPTIONS[0])
-
-genderType = OptionMenu(window, genderVariable, *GENDER_OPTIONS)
-genderType.grid(column=0, row = 2)
-
-nameTextField = Text(window, height=2, width=20)
-nameTextField.grid(column=0, row = 3)
-
-
-firstNameTextFieldLabel = Label(window, text="Prenume")
-firstNameTextFieldLabel.grid(column=0, row = 4)
-
-firstNameTextField = Text(window, height=2, width=20)
-firstNameTextField.grid(column=0, row = 5)
-
-def onAddMember():
+def onAddMemberButton():
 
     global generalID
 
@@ -256,22 +253,10 @@ def onAddMember():
 
     firstName = str(firstNameTextField.get("1.0", END)).replace("\n", "")
 
-    global allMembers
-
-    allMembers = allMembers + [Member(generalID, localName, genderVariable.get(), firstName)]
-
-    generalID = generalID + 1
+    addMember(localName, firstName, genderVariable.get())
     
     nameTextField.delete('1.0', END)
     firstNameTextField.delete('1.0', END)
-
-    print(allMembers)
-    
-descriptionTextFieldLabel = Label(window, text="Descriere")
-descriptionTextFieldLabel.grid(column=0, row = 6)
-
-descriptionTextField = Text(window, height=8, width=20)
-descriptionTextField.grid(column=0, row = 7)
 
 def onLoadPicture():
     filename = filedialog.askopenfilename(initialdir = ".",title = "Select file",filetypes = (("jpg files","*.jpg"),("all files","*.*")))
@@ -279,81 +264,180 @@ def onLoadPicture():
     with open(filename) as file:
         content = file.readlines()
 
-loadPictureButton = Button(window, text="Load Picture", command = onLoadPicture)
-loadPictureButton.grid(column=0, row = 8)
-    
-addMemberButton = Button(window, text="Add member", command = onAddMember)
-addMemberButton.grid(column=0, row = 12)
-
-linkTextFieldLabel = Label(window, text="Legatura")
-linkTextFieldLabel.grid(column=1, columnspan=2, row = 1)
-
-linkVariable = StringVar(window)
-linkVariable.set(OPTIONS[0])
-
-linkType = OptionMenu(window, linkVariable, *OPTIONS)
-linkType.grid(column=1, columnspan=2, row = 2)
-
-
-fromText = Text(window, height=2, width=20)
-fromText.grid(column=1, row = 3)
-
-toText = Text(window, height=2, width=20)
-toText.grid(column=2, row = 3)
-
 def onAddLink():
     print("onAddLink")
     src = int(fromText.get("1.0", END).replace("\n", ""))
     dest = int(toText.get("1.0", END).replace("\n", ""))
-    global allLinks
-    allLinks = allLinks + [Link(allMembers[int(src)], allMembers[int(dest)], linkVariable.get())]
 
-    print(allLinks)
+    addLink(src, dest, linkVariable.get())
+
     fromText.delete('1.0', END)
     toText.delete('1.0', END)
 
-    allLinks = infereChildOf(allLinks)
+def startGUI():
+	window = Tk()
 
-    allLinks = infereParentOf(allLinks)
+	window.title("Family Tree App")
+	window.geometry('1280x720')
 
-addPCLink = Button(window, text="Add Link", command = onAddLink)
-addPCLink.grid(column=1, columnspan=2, row = 4)
+	saveButton = Button(window, text="Save", command = onSaveButton)
+	saveButton.grid(column=0, row=0)
 
-searchIdLabel = Label(window, text="ID")
-searchIdLabel.grid(column=3, row = 2)
+	loadButton = Button(window, text="Load", command = onLoadButton)
+	loadButton.grid(column=1, row = 0)
 
-searchIdText = Text(window, height=2, width=20)
-searchIdText.grid(column=3, row = 3)
+	renderButton = Button(window, text="Render", command = onRender)
+	renderButton.grid(column=2, row = 0)
 
-searchmemberButton = Button(window, text="Search member", command = onSearchMember)
-searchmemberButton.grid(column=3, row = 4)
+	lastNameTextFieldLabel = Label(window, text="Nume")
+	lastNameTextFieldLabel.grid(column=0, row = 1)
 
-removeIdLabel = Label(window, text="ID to be removed member")
-removeIdLabel.grid(column=4, row = 2)
+	genderVariable = StringVar(window)
+	genderVariable.set(GENDER_OPTIONS[0])
 
-removeIdText = Text(window, height=2, width=20)
-removeIdText.grid(column=4, row = 3)
+	genderType = OptionMenu(window, genderVariable, *GENDER_OPTIONS)
+	genderType.grid(column=0, row = 2)
 
-RemoveMemberButton = Button(window, text="Remove member", command = onSearchMember)
-RemoveMemberButton.grid(column=4, row = 4)
+	nameTextField = Text(window, height=2, width=20)
+	nameTextField.grid(column=0, row = 3)
 
 
-removeLinkLabel = Label(window, text="Link to be romved")
-removeLinkLabel.grid(column=5, columnspan=2, row = 1)
+	firstNameTextFieldLabel = Label(window, text="Prenume")
+	firstNameTextFieldLabel.grid(column=0, row = 4)
 
-variable = StringVar(window)
-variable.set(OPTIONS[0])
+	firstNameTextField = Text(window, height=2, width=20)
+	firstNameTextField.grid(column=0, row = 5)
+	    
+	descriptionTextFieldLabel = Label(window, text="Descriere")
+	descriptionTextFieldLabel.grid(column=0, row = 6)
 
-removelinkType = OptionMenu(window, variable, *OPTIONS)
-removelinkType.grid(column=5, columnspan=2, row = 2)
+	descriptionTextField = Text(window, height=8, width=20)
+	descriptionTextField.grid(column=0, row = 7)
 
-removeParentText = Text(window, height=2, width=20)
-removeParentText.grid(column=5, row = 3)
+	loadPictureButton = Button(window, text="Load Picture", command = onLoadPicture)
+	loadPictureButton.grid(column=0, row = 8)
+	    
+	addMemberButton = Button(window, text="Add member", command = onAddMemberButton)
+	addMemberButton.grid(column=0, row = 12)
 
-removeChildText = Text(window, height=2, width=20)
-removeChildText.grid(column=6, row = 3)
+	linkTextFieldLabel = Label(window, text="Legatura")
+	linkTextFieldLabel.grid(column=1, columnspan=2, row = 1)
 
-removeLinkButton = Button(window, text="Remove link", command = onSearchMember)
-removeLinkButton.grid(column=5, columnspan=2, row = 4)
+	linkVariable = StringVar(window)
+	linkVariable.set(OPTIONS[0])
 
-window.mainloop()
+	linkType = OptionMenu(window, linkVariable, *OPTIONS)
+	linkType.grid(column=1, columnspan=2, row = 2)
+
+
+	fromText = Text(window, height=2, width=20)
+	fromText.grid(column=1, row = 3)
+
+	toText = Text(window, height=2, width=20)
+	toText.grid(column=2, row = 3)
+
+	addPCLink = Button(window, text="Add Link", command = onAddLink)
+	addPCLink.grid(column=1, columnspan=2, row = 4)
+
+	searchIdLabel = Label(window, text="ID")
+	searchIdLabel.grid(column=3, row = 2)
+
+	searchIdText = Text(window, height=2, width=20)
+	searchIdText.grid(column=3, row = 3)
+
+	searchmemberButton = Button(window, text="Search member", command = onSearchMember)
+	searchmemberButton.grid(column=3, row = 4)
+
+	removeIdLabel = Label(window, text="ID to be removed member")
+	removeIdLabel.grid(column=4, row = 2)
+
+	removeIdText = Text(window, height=2, width=20)
+	removeIdText.grid(column=4, row = 3)
+
+	RemoveMemberButton = Button(window, text="Remove member", command = onSearchMember)
+	RemoveMemberButton.grid(column=4, row = 4)
+
+
+	removeLinkLabel = Label(window, text="Link to be romved")
+	removeLinkLabel.grid(column=5, columnspan=2, row = 1)
+
+	variable = StringVar(window)
+	variable.set(OPTIONS[0])
+
+	removelinkType = OptionMenu(window, variable, *OPTIONS)
+	removelinkType.grid(column=5, columnspan=2, row = 2)
+
+	removeParentText = Text(window, height=2, width=20)
+	removeParentText.grid(column=5, row = 3)
+
+	removeChildText = Text(window, height=2, width=20)
+	removeChildText.grid(column=6, row = 3)
+
+	removeLinkButton = Button(window, text="Remove link", command = onSearchMember)
+	removeLinkButton.grid(column=5, columnspan=2, row = 4)
+
+	window.mainloop()
+
+
+
+parser = argparse.ArgumentParser(description='Family tree')
+parser.add_argument("--mode")
+
+args = parser.parse_args()
+
+
+if (args.mode == "cmd"):
+	print("CMD mode")
+
+	while True:
+		cmd = input(">> ")
+		if cmd == "exit":
+			break
+		elif cmd.startswith("import"):
+			cmd_args = cmd.split(" ")
+			print("Import: " + cmd_args[1])
+			onLoad(cmd_args[1])
+
+		elif cmd.startswith("search name"):
+			cmd_args = cmd.split(" ")
+			print("Search by name: " + cmd_args[2])
+			resultList = searchByName(cmd_args[2])
+			print(resultList)
+		elif cmd.startswith("list members"):
+			print(allMembers)
+		elif cmd.startswith("add member"):
+			cmd_args = cmd.split(" ")
+			if len(cmd_args) >= 5:
+				
+				firstName = ""
+				for i in range(2, len(cmd_args)-2):
+					firstName = firstName + cmd_args[i] + " "
+				addMember(firstName, cmd_args[len(cmd_args)-2], cmd_args[len(cmd_args)-1])
+				print("Added " + str(allMembers[len(allMembers)-1]))
+			else :
+				print("add member <first name> <last name> <gender>")
+		elif cmd.startswith("add link"):
+			cmd_args = cmd.split(" ")
+			if len(cmd_args) < 5:
+				print("add link <start id> <parent of> <end id>")
+			else:
+				addLink(cmd_args[2], cmd_args[5], cmd_args[3] + " " + cmd_args[4])
+				print("Added " + str(allLinks[len(allLinks)-1]))
+		elif cmd.startswith("export dot"):
+			cmd_args = cmd.split(" ")
+			if len(cmd_args) == 2:
+				exportDotFile("Untitled.dot")
+			else:
+				exportDotFile(cmd_args[2])
+		elif cmd.startswith("save db"):
+			cmd_args = cmd.split(" ")
+			if len(cmd_args) == 2:
+				save(open("Untitled_db.txt","w"))
+			else:
+				save(open(cmd_args[2], "w"))
+		else:
+			print("Unknown command")
+
+	sys.exit(0)
+elif (args.mode == "gui"):
+	startGUI()
