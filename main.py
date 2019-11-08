@@ -54,17 +54,17 @@ styles = {
         'fontcolor': 'black',
         'color': 'black',
     },
-    'edges': {
-        'color': 'white',
-        'arrowhead': 'open',
-        'fontname': 'Courier',
-        'fontsize': '12',
-        'fontcolor': 'black',
-        'color':'black',
-        'penwidth': '3',
-        'arrowsize': "3"
-
-    }
+-    'edges': {
+-        'color': 'white',
+-        'arrowhead': 'open',
+-        'fontname': 'Courier',
+-        'fontsize': '12',
+-        'fontcolor': 'black',
+-        'color':'black',
+-        'penwidth': '3',
+-        'arrowsize': "3"
+-
+     }
 }
 
 def onLoad(filename):
@@ -173,10 +173,24 @@ def exportDotFile(filename):
     f = open(filename,"w")
     f.write("digraph {\n")
 
+    f.write("graph [abel=\"Omnes qui\", labelloc=top, fontsize=48, fontcolor=black, bgcolor=\"#f1ebb9\"];\n");
+
+    f.write("edge [color=white, arrowhead=open, fontname=Courier, fontsize=12, fontcolor=black, color=black, penwidth=3, arrowsize=3];\n")
+
+    f.write("node [shape=rectangle, fontcolor=black, color=black];\n")
 
     for member in allMembers:
-        f.write("" + member.getLabel() +" [label=\"" + member.getFirstName() + " " + member.getName() + "\"]" ";\n")
-    for link in allLinks:
+        thisLabel = "<<TABLE BORDER=\"0\" height=\"100\"><TR> <TD>" + member.getName() + " " + member.getFirstName() + "</TD></TR>"
+        thisLabel = thisLabel + "<TR> <TD><IMG SRC=\"" + member.getImgSrc() + "\" /></TD> </TR>"
+        thisLabel = thisLabel + "<TR> <TD>" + "GEN:" + member.getGender() + "<BR />B:" + "B" + "</TD></TR></TABLE>>"
+
+        nodeAttr = "["
+        nodeAttr = nodeAttr + "label=" + thisLabel + ""
+        #nodeAttr = nodeAttr + ", image=\"" + member.getImgSrc() + "\""
+        #nodeAttr = nodeAttr + ", height=2"
+        nodeAttr = nodeAttr + "]\n"
+        f.write("" + member.getLabel() + nodeAttr)
+    for link in allLinks: 
         if link.getType() == "parent of":
             f.write("    " + link.getSource().getLabel() + " -> " + link.getDest().getLabel() + ";\n")
 
