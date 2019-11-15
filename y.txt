@@ -85,7 +85,7 @@
 83,TITEL,F,Mihaela Paula,C:\Users\Cosmin\Desktop\FamilyTree\na.png,NA,NA,NA
 84,TITEL,M,Vlad Gheorghita,C:\Users\Cosmin\Desktop\FamilyTree\na.png,NA,NA,NA
 85,TITEL,M,FLorin Catalin,C:\Users\Cosmin\Desktop\FamilyTree\na.png,NA,NA,NA
-108
+08
 3,0,parent of
 2,0,parent of
 2,1,parent of
@@ -194,3 +194,4 @@
 83,85,parent of
 82,84,parent of
 82,85,parent of
+
