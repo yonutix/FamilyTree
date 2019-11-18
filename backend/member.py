@@ -2,13 +2,21 @@ import datetime
 import os
 
 class Member:
-    def __init__(self, id, name, gender, firstName, imgSrc="na.png", birthDate = None):
+    def __init__(self, id, name, gender, firstName, imgSrc="na.png", birthDate = None, fbPProfile = None, nameBefore=None):
         self.id = id
         self.name = name
         self.gender = gender
         self.firstName = firstName
         self.imgSrc = imgSrc
         self.birthDate = birthDate
+        self.fbPProfile = fbPProfile
+        self.nameBefore = nameBefore
+
+        if imgSrc.endswith("\\na.png"):
+            if gender == "F":
+                self.imgSrc = imgSrc.replace("\\na.png", "\\woman.png")
+            else:
+                self.imgSrc = imgSrc.replace("\\na.png", "\\man.png")
 
     def getId(self):
         return self.id
@@ -27,6 +35,12 @@ class Member:
 
     def getBirthDate(self):
         return self.birthDate
+
+    def getFBProfile(self):
+        return self.fbPProfile
+
+    def getNameBefore(self):
+        return self.nameBefore
 
     def getLabel(self):
         result = ""

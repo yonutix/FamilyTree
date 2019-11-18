@@ -54,16 +54,15 @@ styles = {
         'fontcolor': 'black',
         'color': 'black',
     },
--    'edges': {
--        'color': 'white',
--        'arrowhead': 'open',
--        'fontname': 'Courier',
--        'fontsize': '12',
--        'fontcolor': 'black',
--        'color':'black',
--        'penwidth': '3',
--        'arrowsize': "3"
--
+    'edges': {
+        'color': 'white',
+        'arrowhead': 'open',
+        'fontname': 'Courier',
+        'fontsize': '12',
+        'fontcolor': 'black',
+        'color':'black',
+        'penwidth': '3',
+        'arrowsize': '3'
      }
 }
 
@@ -92,10 +91,15 @@ def onLoad(filename):
             if components[5] == "NA":
                 allMembers = allMembers + [Member(generalID, name, gender, firstName, imgSrc)]
             else:
+
                 allMembers = allMembers + [Member(generalID, name, gender, firstName, imgSrc, 
-                    datetime.date(year=int(components[5]), month = int(components[6]), day = int(components[7])))]
+                    datetime.date(year=int(components[5]), month = 1, day = 1), components[8], components[9])]
+
+
             
             generalID = generalID + 1
+
+        print("Loaded " + str(len(allMembers)) + " members")
 
         linksLineCount = int(content[memberLineCount+1])
 
@@ -108,6 +112,8 @@ def onLoad(filename):
                 allLinks = allLinks + [Link(allMembers[int(src)], allMembers[int(dest)], t, components[3])]
             else:
                 allLinks = allLinks + [Link(allMembers[int(src)], allMembers[int(dest)], t)]
+
+        print("Loaded " + str(len(allLinks)) + " links")
 
         file.close()
     else:
@@ -142,11 +148,11 @@ def save(file):
 
 
 def searchByName(name):
-	nameList = []
-	for member in allMembers:
-		if name.lower() in member.getName().lower():
-			nameList.append(member)
-	return nameList
+    nameList = []
+    for member in allMembers:
+        if name.lower() in member.getName().lower():
+            nameList.append(member)
+    return nameList
 
 def addMember(firstName, lastName, gender):
 
@@ -173,16 +179,43 @@ def exportDotFile(filename):
     f = open(filename,"w")
     f.write("digraph {\n")
 
-    f.write("graph [abel=\"Omnes qui\", labelloc=top, fontsize=48, fontcolor=black, bgcolor=\"#f1ebb9\"];\n");
+    f.write("graph [label=\"Arbore genealogic\", labelloc=top, fontsize=72, fontcolor=black, bgcolor=\"#ffffff\", nodesep=1, ranksep=0.01, ratio=compress];\n");
 
     f.write("edge [color=white, arrowhead=open, fontname=Courier, fontsize=12, fontcolor=black, color=black, penwidth=3, arrowsize=3];\n")
 
     f.write("node [shape=rectangle, fontcolor=black, color=black];\n")
 
+    yearList = []
+    for i in range(1900, 2020, 1):
+
+        for member in allMembers:
+            if (member.getBirthDate().year == i):
+                if not i in yearList:
+                    yearList.append(i)
+
+    for i in range(1, len(yearList)):
+
+        f.write("    " + str(yearList[i-1]) + " -> " + str(yearList[i]) + ";\n")
+
     for member in allMembers:
-        thisLabel = "<<TABLE BORDER=\"0\" height=\"100\"><TR> <TD>" + member.getName() + " " + member.getFirstName() + "</TD></TR>"
-        thisLabel = thisLabel + "<TR> <TD><IMG SRC=\"" + member.getImgSrc() + "\" /></TD> </TR>"
-        thisLabel = thisLabel + "<TR> <TD>" + "GEN:" + member.getGender() + "<BR />B:" + "B" + "</TD></TR></TABLE>>"
+
+        thisLabel = "<<TABLE BORDER=\"2\" align=\"left\">"
+        thisLabel = thisLabel + "<TR> <TD><IMG SRC=\"" + member.getImgSrc() + "\" /></TD><TD>"
+        thisLabel =  thisLabel + member.getName() + " " + member.getFirstName() + "<BR />" + "Gen: " + member.getGender()  + "<BR />" + "Data de nastere: " + str(member.getBirthDate().year)
+        if member.getGender() == "F":
+            thisLabel = thisLabel + " <BR />" + "Nume de familie nastere: <BR /> " + member.getNameBefore()
+
+        thisLabel = thisLabel + "</TD></TR></TABLE>>"
+
+        #thisLabel = "<<TABLE BORDER=\"2\" height=\"200\">"
+        #thisLabel = thisLabel + "<TR> <TD>" + member.getName() + " " + member.getFirstName() + "</TD></TR>"
+        #thisLabel = thisLabel + "<TR> <TD><IMG SRC=\"" + member.getImgSrc() + "\" /></TD> </TR>\n"
+        #hisLabel = thisLabel + "<TR> <TD>" + "GEN:" + member.getGender() + "</TD></TR>\n"
+        #thisLabel = thisLabel +  "<TR> <TD>" + "Data de nastere: " + str(member.getBirthDate().year) + "</TD></TR>\n"
+        #if member.getGender() == "F":
+        #    thisLabel = thisLabel + "<TR> <TD>" + "Nume de familie nastere: <BR /> "  + member.getNameBefore() + "</TD></TR>"
+
+        #thisLabel = thisLabel + "</TABLE>>"
 
         nodeAttr = "["
         nodeAttr = nodeAttr + "label=" + thisLabel + ""
@@ -190,6 +223,11 @@ def exportDotFile(filename):
         #nodeAttr = nodeAttr + ", height=2"
         nodeAttr = nodeAttr + "]\n"
         f.write("" + member.getLabel() + nodeAttr)
+
+        #rankStr = ""
+        rankStr = "{rank = same; " + member.getLabel() + "; " + str(int(member.getBirthDate().year)) + ";" + "}\n"
+        f.write(rankStr);
+
     for link in allLinks: 
         if link.getType() == "parent of":
             f.write("    " + link.getSource().getLabel() + " -> " + link.getDest().getLabel() + ";\n")
@@ -215,7 +253,7 @@ def onSearchMember():
 def onRender():
     print("Start on render")
     dot = Digraph(comment='The Round Table', engine='dot', format='png')
-    dot.attr(overlap='false', fixedsize='true', lwidth='50', ranksep="4",pad="1", nodesep='2', image='tile.png', dimen='3')
+    dot.attr(overlap='false', fixedsize='true', lwidth='50', ranksep="0.1",pad="1", nodesep='0.2', image='tile.png', dimen='3')
     print("onRender " + str(len(allMembers)))
     
     
@@ -289,108 +327,108 @@ def onAddLink():
     toText.delete('1.0', END)
 
 def startGUI():
-	window = Tk()
+    window = Tk()
 
-	window.title("Family Tree App")
-	window.geometry('1280x720')
+    window.title("Family Tree App")
+    window.geometry('1280x720')
 
-	saveButton = Button(window, text="Save", command = onSaveButton)
-	saveButton.grid(column=0, row=0)
+    saveButton = Button(window, text="Save", command = onSaveButton)
+    saveButton.grid(column=0, row=0)
 
-	loadButton = Button(window, text="Load", command = onLoadButton)
-	loadButton.grid(column=1, row = 0)
+    loadButton = Button(window, text="Load", command = onLoadButton)
+    loadButton.grid(column=1, row = 0)
 
-	renderButton = Button(window, text="Render", command = onRender)
-	renderButton.grid(column=2, row = 0)
+    renderButton = Button(window, text="Render", command = onRender)
+    renderButton.grid(column=2, row = 0)
 
-	lastNameTextFieldLabel = Label(window, text="Nume")
-	lastNameTextFieldLabel.grid(column=0, row = 1)
+    lastNameTextFieldLabel = Label(window, text="Nume")
+    lastNameTextFieldLabel.grid(column=0, row = 1)
 
-	genderVariable = StringVar(window)
-	genderVariable.set(GENDER_OPTIONS[0])
+    genderVariable = StringVar(window)
+    genderVariable.set(GENDER_OPTIONS[0])
 
-	genderType = OptionMenu(window, genderVariable, *GENDER_OPTIONS)
-	genderType.grid(column=0, row = 2)
+    genderType = OptionMenu(window, genderVariable, *GENDER_OPTIONS)
+    genderType.grid(column=0, row = 2)
 
-	nameTextField = Text(window, height=2, width=20)
-	nameTextField.grid(column=0, row = 3)
-
-
-	firstNameTextFieldLabel = Label(window, text="Prenume")
-	firstNameTextFieldLabel.grid(column=0, row = 4)
-
-	firstNameTextField = Text(window, height=2, width=20)
-	firstNameTextField.grid(column=0, row = 5)
-	    
-	descriptionTextFieldLabel = Label(window, text="Descriere")
-	descriptionTextFieldLabel.grid(column=0, row = 6)
-
-	descriptionTextField = Text(window, height=8, width=20)
-	descriptionTextField.grid(column=0, row = 7)
-
-	loadPictureButton = Button(window, text="Load Picture", command = onLoadPicture)
-	loadPictureButton.grid(column=0, row = 8)
-	    
-	addMemberButton = Button(window, text="Add member", command = onAddMemberButton)
-	addMemberButton.grid(column=0, row = 12)
-
-	linkTextFieldLabel = Label(window, text="Legatura")
-	linkTextFieldLabel.grid(column=1, columnspan=2, row = 1)
-
-	linkVariable = StringVar(window)
-	linkVariable.set(OPTIONS[0])
-
-	linkType = OptionMenu(window, linkVariable, *OPTIONS)
-	linkType.grid(column=1, columnspan=2, row = 2)
+    nameTextField = Text(window, height=2, width=20)
+    nameTextField.grid(column=0, row = 3)
 
 
-	fromText = Text(window, height=2, width=20)
-	fromText.grid(column=1, row = 3)
+    firstNameTextFieldLabel = Label(window, text="Prenume")
+    firstNameTextFieldLabel.grid(column=0, row = 4)
 
-	toText = Text(window, height=2, width=20)
-	toText.grid(column=2, row = 3)
+    firstNameTextField = Text(window, height=2, width=20)
+    firstNameTextField.grid(column=0, row = 5)
 
-	addPCLink = Button(window, text="Add Link", command = onAddLink)
-	addPCLink.grid(column=1, columnspan=2, row = 4)
+    descriptionTextFieldLabel = Label(window, text="Descriere")
+    descriptionTextFieldLabel.grid(column=0, row = 6)
 
-	searchIdLabel = Label(window, text="ID")
-	searchIdLabel.grid(column=3, row = 2)
+    descriptionTextField = Text(window, height=8, width=20)
+    descriptionTextField.grid(column=0, row = 7)
 
-	searchIdText = Text(window, height=2, width=20)
-	searchIdText.grid(column=3, row = 3)
+    loadPictureButton = Button(window, text="Load Picture", command = onLoadPicture)
+    loadPictureButton.grid(column=0, row = 8)
 
-	searchmemberButton = Button(window, text="Search member", command = onSearchMember)
-	searchmemberButton.grid(column=3, row = 4)
+    addMemberButton = Button(window, text="Add member", command = onAddMemberButton)
+    addMemberButton.grid(column=0, row = 12)
 
-	removeIdLabel = Label(window, text="ID to be removed member")
-	removeIdLabel.grid(column=4, row = 2)
+    linkTextFieldLabel = Label(window, text="Legatura")
+    linkTextFieldLabel.grid(column=1, columnspan=2, row = 1)
 
-	removeIdText = Text(window, height=2, width=20)
-	removeIdText.grid(column=4, row = 3)
+    linkVariable = StringVar(window)
+    linkVariable.set(OPTIONS[0])
 
-	RemoveMemberButton = Button(window, text="Remove member", command = onSearchMember)
-	RemoveMemberButton.grid(column=4, row = 4)
+    linkType = OptionMenu(window, linkVariable, *OPTIONS)
+    linkType.grid(column=1, columnspan=2, row = 2)
 
 
-	removeLinkLabel = Label(window, text="Link to be romved")
-	removeLinkLabel.grid(column=5, columnspan=2, row = 1)
+    fromText = Text(window, height=2, width=20)
+    fromText.grid(column=1, row = 3)
 
-	variable = StringVar(window)
-	variable.set(OPTIONS[0])
+    toText = Text(window, height=2, width=20)
+    toText.grid(column=2, row = 3)
 
-	removelinkType = OptionMenu(window, variable, *OPTIONS)
-	removelinkType.grid(column=5, columnspan=2, row = 2)
+    addPCLink = Button(window, text="Add Link", command = onAddLink)
+    addPCLink.grid(column=1, columnspan=2, row = 4)
 
-	removeParentText = Text(window, height=2, width=20)
-	removeParentText.grid(column=5, row = 3)
+    searchIdLabel = Label(window, text="ID")
+    searchIdLabel.grid(column=3, row = 2)
 
-	removeChildText = Text(window, height=2, width=20)
-	removeChildText.grid(column=6, row = 3)
+    searchIdText = Text(window, height=2, width=20)
+    searchIdText.grid(column=3, row = 3)
 
-	removeLinkButton = Button(window, text="Remove link", command = onSearchMember)
-	removeLinkButton.grid(column=5, columnspan=2, row = 4)
+    searchmemberButton = Button(window, text="Search member", command = onSearchMember)
+    searchmemberButton.grid(column=3, row = 4)
 
-	window.mainloop()
+    removeIdLabel = Label(window, text="ID to be removed member")
+    removeIdLabel.grid(column=4, row = 2)
+
+    removeIdText = Text(window, height=2, width=20)
+    removeIdText.grid(column=4, row = 3)
+
+    RemoveMemberButton = Button(window, text="Remove member", command = onSearchMember)
+    RemoveMemberButton.grid(column=4, row = 4)
+
+
+    removeLinkLabel = Label(window, text="Link to be romved")
+    removeLinkLabel.grid(column=5, columnspan=2, row = 1)
+
+    variable = StringVar(window)
+    variable.set(OPTIONS[0])
+
+    removelinkType = OptionMenu(window, variable, *OPTIONS)
+    removelinkType.grid(column=5, columnspan=2, row = 2)
+
+    removeParentText = Text(window, height=2, width=20)
+    removeParentText.grid(column=5, row = 3)
+
+    removeChildText = Text(window, height=2, width=20)
+    removeChildText.grid(column=6, row = 3)
+
+    removeLinkButton = Button(window, text="Remove link", command = onSearchMember)
+    removeLinkButton.grid(column=5, columnspan=2, row = 4)
+
+    window.mainloop()
 
 
 
@@ -401,57 +439,57 @@ args = parser.parse_args()
 
 
 if (args.mode == "cmd"):
-	print("CMD mode")
+    print("CMD mode")
 
-	while True:
-		cmd = input(">> ")
-		if cmd == "exit":
-			break
-		elif cmd.startswith("import"):
-			cmd_args = cmd.split(" ")
-			print("Import: " + cmd_args[1])
-			onLoad(cmd_args[1])
+    while True:
+        cmd = input(">> ")
+        if cmd == "exit":
+            break
+        elif cmd.startswith("import"):
+            cmd_args = cmd.split(" ")
+            print("Import: " + cmd_args[1])
+            onLoad(cmd_args[1])
 
-		elif cmd.startswith("search name"):
-			cmd_args = cmd.split(" ")
-			print("Search by name: " + cmd_args[2])
-			resultList = searchByName(cmd_args[2])
-			print(resultList)
-		elif cmd.startswith("list members"):
-			print(allMembers)
-		elif cmd.startswith("add member"):
-			cmd_args = cmd.split(" ")
-			if len(cmd_args) >= 5:
-				
-				firstName = ""
-				for i in range(2, len(cmd_args)-2):
-					firstName = firstName + cmd_args[i] + " "
-				addMember(firstName, cmd_args[len(cmd_args)-2], cmd_args[len(cmd_args)-1])
-				print("Added " + str(allMembers[len(allMembers)-1]))
-			else :
-				print("add member <first name> <last name> <gender>")
-		elif cmd.startswith("add link"):
-			cmd_args = cmd.split(" ")
-			if len(cmd_args) < 5:
-				print("add link <start id> <parent of> <end id>")
-			else:
-				addLink(cmd_args[2], cmd_args[5], cmd_args[3] + " " + cmd_args[4])
-				print("Added " + str(allLinks[len(allLinks)-1]))
-		elif cmd.startswith("export dot"):
-			cmd_args = cmd.split(" ")
-			if len(cmd_args) == 2:
-				exportDotFile("Untitled.dot")
-			else:
-				exportDotFile(cmd_args[2])
-		elif cmd.startswith("save db"):
-			cmd_args = cmd.split(" ")
-			if len(cmd_args) == 2:
-				save(open("Untitled_db.txt","w"))
-			else:
-				save(open(cmd_args[2], "w"))
-		else:
-			print("Unknown command")
+        elif cmd.startswith("search name"):
+            cmd_args = cmd.split(" ")
+            print("Search by name: " + cmd_args[2])
+            resultList = searchByName(cmd_args[2])
+            print(resultList)
+        elif cmd.startswith("list members"):
+            print(allMembers)
+        elif cmd.startswith("add member"):
+            cmd_args = cmd.split(" ")
+            if len(cmd_args) >= 5:
 
-	sys.exit(0)
+                firstName = ""
+                for i in range(2, len(cmd_args)-2):
+                    firstName = firstName + cmd_args[i] + " "
+                addMember(firstName, cmd_args[len(cmd_args)-2], cmd_args[len(cmd_args)-1])
+                print("Added " + str(allMembers[len(allMembers)-1]))
+            else :
+                print("add member <first name> <last name> <gender>")
+        elif cmd.startswith("add link"):
+            cmd_args = cmd.split(" ")
+            if len(cmd_args) < 5:
+                print("add link <start id> <parent of> <end id>")
+            else:
+                addLink(cmd_args[2], cmd_args[5], cmd_args[3] + " " + cmd_args[4])
+                print("Added " + str(allLinks[len(allLinks)-1]))
+        elif cmd.startswith("export dot"):
+            cmd_args = cmd.split(" ")
+            if len(cmd_args) == 2:
+                exportDotFile("Untitled.dot")
+            else:
+                exportDotFile(cmd_args[2])
+        elif cmd.startswith("save db"):
+            cmd_args = cmd.split(" ")
+            if len(cmd_args) == 2:
+                save(open("Untitled_db.txt","w"))
+            else:
+                save(open(cmd_args[2], "w"))
+        else:
+            print("Unknown command")
+
+    sys.exit(0)
 elif (args.mode == "gui"):
-	startGUI()
+    startGUI()
