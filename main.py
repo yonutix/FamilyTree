@@ -66,12 +66,75 @@ styles = {
      }
 }
 
-def onLoad(filename):
+def loadMembers(filename):
     global allMembers
-    global allLinks
     global generalID
+    allMembers = []
 
-    allMembers  = []
+    file = open(filename)
+    if file:
+        content = file.readlines()
+        content = [x.strip() for x in content]
+        memberLineCount = len(content)
+
+        for i in range(memberLineCount):
+            if len(content[i]) < 1:
+                continue
+            components = content[i].split(",")
+            name = components[1]
+            gender = components[2]
+            firstName = components[3]
+            imgSrc = components[4]
+            if components[5] == "NA":
+                allMembers = allMembers + [Member(generalID, name, gender, firstName, imgSrc)]
+            else:
+
+                allMembers = allMembers + [Member(generalID, name, gender, firstName, imgSrc,
+                                                  datetime.date(year=int(components[5]), month=1, day=1), components[8],
+                                                  components[9])]
+
+            generalID = generalID + 1
+
+        print("Loaded " + str(len(allMembers)) + " members")
+        file.close()
+    else:
+        print("Could not load " + filename)
+
+def loadLinks(filename):
+    global allLinks
+
+    allLinks = []
+
+    file = open(filename)
+    if file:
+        print("Loading " + filename)
+
+        content = file.readlines()
+        content = [x.strip() for x in content]
+        linksLineCount = len(content)
+
+        for i in range(linksLineCount):
+            if len(content[i]) < 1:
+                continue
+            components = content[i].split(",")
+            src = components[0]
+            dest = components[1]
+            t = components[2]
+            if len(components) > 3:
+                allLinks = allLinks + [Link(allMembers[int(src)], allMembers[int(dest)], t, components[3])]
+            else:
+                allLinks = allLinks + [Link(allMembers[int(src)], allMembers[int(dest)], t)]
+
+        print("Loaded " + str(len(allLinks)) + " links")
+
+        file.close()
+    else:
+        print("Could not load " + filename)
+
+def onLoad(filename):
+
+    global allLinks
+
     allLinks  = []
 
     file = open(filename)
@@ -447,8 +510,11 @@ if (args.mode == "cmd"):
             break
         elif cmd.startswith("import"):
             cmd_args = cmd.split(" ")
-            print("Import: " + cmd_args[1])
-            onLoad(cmd_args[1])
+            print("Import: " + cmd_args[1] + " " + cmd_args[2])
+
+            loadMembers(cmd_args[1])
+            loadLinks(cmd_args[2])
+            #onLoad(cmd_args[1])
 
         elif cmd.startswith("search name"):
             cmd_args = cmd.split(" ")
