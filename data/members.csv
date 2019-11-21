@@ -8,7 +8,7 @@
 7,CAPATANA,F,Viorica,C:\Users\Cosmin\Desktop\FamilyTree\na.png,1969,NA,NA,NA,TARCUS
 8,CAPATANA,F,Cristina,C:\Users\Cosmin\Desktop\FamilyTree\img/cristina_elena_capatana.png,1993,6,7,NA,CAPATANA
 9,CAPATANA,F,Ana-Maria,C:\Users\Cosmin\Desktop\FamilyTree\img/capatana_ana_maria.png,2005,NA,NA,NA,NA
-10,CAPATANA,M,Petre,C:\Users\Cosmin\Desktop\FamilyTree\na.png,1969,NA,NA,NA,NA
+10,CAPATANA,M,Petre Marian,C:\Users\Cosmin\Desktop\FamilyTree\na.png,1968,NA,NA,NA,NA
 11,ILIE,M,Stefan Ovidiu,C:\Users\Cosmin\Desktop\FamilyTree\img/stefan_ovidiu_ilie.png,1992,1,1,NA,NA
 12,ILIE,M,Stefan,C:\Users\Cosmin\Desktop\FamilyTree\na.png,1969,NA,NA,NA,NA
 13,ILIE,M,Mihai,C:\Users\Cosmin\Desktop\FamilyTree\img/mihai_ilie.jpg,2007,NA,NA,NA,NA
@@ -26,7 +26,7 @@
 25,CAPATANA,M,Cosmin,C:\Users\Cosmin\Desktop\FamilyTree\img/cosmin_emilian_capatana.png,1990,NA,NA,NA,NA
 26,DIBA,F,Andra,C:\Users\Cosmin\Desktop\FamilyTree\img/andra_capatana.png,1992,NA,NA,NA,CAPATANA
 27,CAPATANA,F,Antoana,C:\Users\Cosmin\Desktop\FamilyTree\na.png,1934,NA,NA,NA,NA
-28,CAPATANA,M,Virgil,C:\Users\Cosmin\Desktop\FamilyTree\na.png,1940,NA,NA,NA,NA
+28,CAPATANA,M,Virgil,C:\Users\Cosmin\Desktop\FamilyTree\na.png,1935,NA,NA,NA,NA
 29,ILIE,M,Vasile,C:\Users\Cosmin\Desktop\FamilyTree\na.png,1940,NA,NA,NA,NA
 30,ILIE,F,Ioana,C:\Users\Cosmin\Desktop\FamilyTree\na.png,1940,NA,NA,NA,NA
 31,GHICA,F,Florea,C:\Users\Cosmin\Desktop\FamilyTree\na.png,1900,NA,NA,NA,NA
@@ -37,7 +37,7 @@
 36,COSTACHE,M,Radu,C:\Users\Cosmin\Desktop\FamilyTree\na.png,1970,NA,NA,NA,NA
 37,COSTACHE,F,Georgica,C:\Users\Cosmin\Desktop\FamilyTree\na.png,1970,NA,NA,NA,NA
 38,COSTACHE,F,Alina,C:\Users\Cosmin\Desktop\FamilyTree\na.png,1985,NA,NA,NA,COSTACHE
-39,GHICA,F,Floarea,C:\Users\Cosmin\Desktop\FamilyTree\na.png,1910,NA,NA,NA,GHICA
+39,GHICA,F,Floarea,C:\Users\Cosmin\Desktop\FamilyTree\na.png,1930,NA,NA,NA,GHICA
 40,STATE,F,Maria,C:\Users\Cosmin\Desktop\FamilyTree\na.png,1937,NA,NA,NA,GHICA
 41,STATE,M,Ion,C:\Users\Cosmin\Desktop\FamilyTree\na.png,1950,NA,NA,NA,NA
 42,MANOLESCU,F,Ioana,C:\Users\Cosmin\Desktop\FamilyTree\na.png,1935,NA,NA,NA,GHICA
@@ -48,19 +48,19 @@
 47,MANOLESCU,M,Ion,C:\Users\Cosmin\Desktop\FamilyTree\na.png,1965,NA,NA,NA,NA
 48,GHICA,M,Gheorghe,C:\Users\Cosmin\Desktop\FamilyTree\na.png,1943,NA,NA,NA,NA
 49,GHICA,M,Ilie,C:\Users\Cosmin\Desktop\FamilyTree\na.png,1947,NA,NA,NA,NA
-50,GHICA,F,Floarea,C:\Users\Cosmin\Desktop\FamilyTree\na.png,1932,NA,NA,NA,GHICA
+50,GHICA,F,Floarea,C:\Users\Cosmin\Desktop\FamilyTree\na.png,1938,NA,NA,NA,GHICA
 51,GHICA,M,Sergiu,C:\Users\Cosmin\Desktop\FamilyTree\na.png,1975,NA,NA,NA,NA
 52,GHICA,F,Camelia,C:\Users\Cosmin\Desktop\FamilyTree\na.png,1980,NA,NA,NA,GHICA
 53,GHICA,M,Iulian,C:\Users\Cosmin\Desktop\FamilyTree\na.png,1972,NA,NA,NA,NA
-54,GHICA,M,Ion,C:\Users\Cosmin\Desktop\FamilyTree\na.png,1971,NA,NA,NA,NA
-55,GHICA,M,Ion,C:\Users\Cosmin\Desktop\FamilyTree\na.png,1950,NA,NA,NA,NA
+54,GHICA,M,Ion,C:\Users\Cosmin\Desktop\FamilyTree\na.png,1970,NA,NA,NA,NA
+55,GHICA,M,Ion,C:\Users\Cosmin\Desktop\FamilyTree\na.png,1944,NA,NA,NA,NA
 56,GHICA,F,Rodica,C:\Users\Cosmin\Desktop\FamilyTree\na.png,1934,NA,NA,NA,GHICA
 57,GHICA,M,Costel,C:\Users\Cosmin\Desktop\FamilyTree\na.png,1950,NA,NA,NA,NA
 58,MANOLESCU,F,Liliana,C:\Users\Cosmin\Desktop\FamilyTree\na.png,1980,NA,NA,NA,NA
-59,PARVAN,F,Gina,C:\Users\Cosmin\Desktop\FamilyTree\na.png,1965,NA,NA,NA,NA
+59,PARVAN,F,Argentina,C:\Users\Cosmin\Desktop\FamilyTree\na.png,1965,NA,NA,NA,CAPATANA
 60,PARVAN,M,Dumitru,C:\Users\Cosmin\Desktop\FamilyTree\na.png,1960,NA,NA,NA,NA
-61,PARVAN,F,Nicoleta,C:\Users\Cosmin\Desktop\FamilyTree\na.png,1980,NA,NA,NA,PARVAN
-62,PARVAN,M,Ianos,C:\Users\Cosmin\Desktop\FamilyTree\na.png,1980,NA,NA,NA,NA
+61,PARVAN,F,Nicoleta,C:\Users\Cosmin\Desktop\FamilyTree\na.png,1981,NA,NA,NA,PARVAN
+62,PARVAN,M,Ianis,C:\Users\Cosmin\Desktop\FamilyTree\na.png,1978,NA,NA,NA,NA
 63,GRIGORESCU,F,Raluca-Elena,C:\Users\Cosmin\Desktop\FamilyTree\img/raluca_grigorescu.jpg,1993,NA,NA,NA,GRIGORESCU
 64,GRIGORESCU,M,Dan,C:\Users\Cosmin\Desktop\FamilyTree\img/dan_grigorescu.jpg,1969,NA,NA,NA,NA
 65,GRIGORESCU,F,Ileana,C:\Users\Cosmin\Desktop\FamilyTree\img/ileana_grigorescu.jpg,1968,NA,NA,NA,TITEL
@@ -85,3 +85,21 @@
 84,TITEL,M,Vlad Gheorghita,C:\Users\Cosmin\Desktop\FamilyTree\na.png,1994,NA,NA,NA,NA
 85,TITEL,M,FLorin Catalin,C:\Users\Cosmin\Desktop\FamilyTree\na.png,1996,NA,NA,NA,NA
 86,COSTACHE,M,Dominic Stefan,C:\Users\Cosmin\Desktop\FamilyTree\na.png,2019,NA,NA,NA,NA
+87,TARCUS,M,Alexandru,C:\Users\Cosmin\Desktop\FamilyTree\na.png,1900,NA,NA,NA,NA
+88,TARCUS,F,Ioana,C:\Users\Cosmin\Desktop\FamilyTree\na.png,1900,NA,NA,NA,NA
+89,_______,F,Rada,C:\Users\Cosmin\Desktop\FamilyTree\na.png,1933,NA,NA,NA,TARCUS
+90,TARCUS,F,Maria,C:\Users\Cosmin\Desktop\FamilyTree\na.png,1932,NA,NA,NA,TARCUS
+91,TARCUS,F,Ioana,C:\Users\Cosmin\Desktop\FamilyTree\na.png,1934,NA,NA,NA,TARCUS
+92,_______,M,Georgian Floarian,C:\Users\Cosmin\Desktop\FamilyTree\na.png,1970,NA,NA,NA,NA
+93,_______,M,Marian,C:\Users\Cosmin\Desktop\FamilyTree\na.png,1970,NA,NA,NA,NA
+94,_______,F,Stela,C:\Users\Cosmin\Desktop\FamilyTree\na.png,1975,NA,NA,NA,NA
+95,_______,F,Ioana,C:\Users\Cosmin\Desktop\FamilyTree\na.png,1975,NA,NA,NA,NA
+96,_______,F,Mariana,C:\Users\Cosmin\Desktop\FamilyTree\na.png,1975,NA,NA,NA,NA
+97,_______,F,Geta,C:\Users\Cosmin\Desktop\FamilyTree\na.png,1975,NA,NA,NA,NA
+98,_______,M,Mugurel,C:\Users\Cosmin\Desktop\FamilyTree\na.png,1970,NA,NA,NA,NA
+99,TARCUS,F,Maria Melisa,C:\Users\Cosmin\Desktop\FamilyTree\na.png,2003,NA,NA,NA,NA
+100,_______,F,Florina,C:\Users\Cosmin\Desktop\FamilyTree\na.png,1975,NA,NA,NA,ILIE
+101,_______,M,Victor,C:\Users\Cosmin\Desktop\FamilyTree\na.png,1975,NA,NA,NA,NA
+102,_______,M,Danut,C:\Users\Cosmin\Desktop\FamilyTree\na.png,1995,NA,NA,NA,NA
+103,ILIE,M,Vasile,C:\Users\Cosmin\Desktop\FamilyTree\na.png,1940,NA,NA,NA,NA
+104,ILIE,F,Ioana,C:\Users\Cosmin\Desktop\FamilyTree\na.png,1940,NA,NA,NA,NA

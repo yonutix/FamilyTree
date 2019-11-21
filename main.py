@@ -85,6 +85,7 @@ def loadMembers(filename):
             gender = components[2]
             firstName = components[3]
             imgSrc = components[4]
+
             if components[5] == "NA":
                 allMembers = allMembers + [Member(generalID, name, gender, firstName, imgSrc)]
             else:
@@ -92,6 +93,7 @@ def loadMembers(filename):
                 allMembers = allMembers + [Member(generalID, name, gender, firstName, imgSrc,
                                                   datetime.date(year=int(components[5]), month=1, day=1), components[8],
                                                   components[9])]
+
 
             generalID = generalID + 1
 
@@ -151,6 +153,7 @@ def onLoad(filename):
             gender = components[2]
             firstName = components[3]
             imgSrc = components[4]
+            print(components[0])
             if components[5] == "NA":
                 allMembers = allMembers + [Member(generalID, name, gender, firstName, imgSrc)]
             else:
@@ -242,9 +245,9 @@ def exportDotFile(filename):
     f = open(filename,"w")
     f.write("digraph {\n")
 
-    f.write("graph [label=\"Arbore genealogic\", labelloc=top, fontsize=72, fontcolor=black, bgcolor=\"#ffffff\", nodesep=1, ranksep=0.01, ratio=compress];\n");
+    f.write("graph [label=\"Arbore genealogic, 21 Noiembrie 2019, ionut.cosmin.mihai@gmail.com\", labelloc=b, fontsize=72, fontcolor=black,  fontname=Courier, bgcolor=\"#ffffff\", ratio=compress];\n");
 
-    f.write("edge [color=white, arrowhead=open, fontname=Courier, fontsize=12, fontcolor=black, color=black, penwidth=3, arrowsize=3];\n")
+    f.write("edge [color=white, arrowhead=open, fontname=Courier, fontcolor=black, color=black, penwidth=3, arrowsize=3];\n")
 
     f.write("node [shape=rectangle, fontcolor=black, color=black];\n")
 
@@ -256,19 +259,32 @@ def exportDotFile(filename):
                 if not i in yearList:
                     yearList.append(i)
 
+    for i in range(len(yearList)):
+        f.write("    " + str(yearList[i])  + "[label=" + str(yearList[i]) + " fontsize=100 shape=plaintext];\n")
+
+
+
     for i in range(1, len(yearList)):
 
-        f.write("    " + str(yearList[i-1]) + " -> " + str(yearList[i]) + ";\n")
+        f.write("    " + str(yearList[i-1]) + " -> " + str(yearList[i]) + "[style=invis];\n")
 
     for member in allMembers:
 
-        thisLabel = "<<TABLE BORDER=\"2\" align=\"left\">"
-        thisLabel = thisLabel + "<TR> <TD><IMG SRC=\"" + member.getImgSrc() + "\" /></TD><TD>"
-        thisLabel =  thisLabel + member.getName() + " " + member.getFirstName() + "<BR />" + "Gen: " + member.getGender()  + "<BR />" + "Data de nastere: " + str(member.getBirthDate().year)
-        if member.getGender() == "F":
-            thisLabel = thisLabel + " <BR />" + "Nume de familie nastere: <BR /> " + member.getNameBefore()
+        #thisLabel = "<<TABLE BORDER=\"2\" align=\"left\">"
+        #thisLabel = thisLabel + "<TR> <TD><IMG SRC=\"" + member.getImgSrc() + "\" /></TD><TD>"
+        #thisLabel =  thisLabel + member.getName() + " " + member.getFirstName() + "<BR />" + "Gen: " + member.getGender()  + "<BR />" + "Data de nastere: " + str(member.getBirthDate().year)
+        #if member.getGender() == "F":
+        #    thisLabel = thisLabel + " <BR />" + "Nume de familie nastere:  " + member.getNameBefore()
 
-        thisLabel = thisLabel + "</TD></TR></TABLE>>"
+        #thisLabel = thisLabel + "</TD></TR></TABLE>>"
+        numeFam = ""
+        if member.getGender() == "F":
+            numeFam =  "Nume de familie nastere:  " + member.getNameBefore()
+
+        thisLabel =  "\"" + member.getName() + " " + member.getFirstName() + " \l" + "Gen: " + member.getGender() +  "\l"
+
+        thisLabel = thisLabel + "Data de nastere: " + str(member.getBirthDate().year) + "\l"
+        thisLabel = thisLabel + numeFam + "\""
 
         #thisLabel = "<<TABLE BORDER=\"2\" height=\"200\">"
         #thisLabel = thisLabel + "<TR> <TD>" + member.getName() + " " + member.getFirstName() + "</TD></TR>"
@@ -284,7 +300,7 @@ def exportDotFile(filename):
         nodeAttr = nodeAttr + "label=" + thisLabel + ""
         #nodeAttr = nodeAttr + ", image=\"" + member.getImgSrc() + "\""
         #nodeAttr = nodeAttr + ", height=2"
-        nodeAttr = nodeAttr + "]\n"
+        nodeAttr = nodeAttr + " fontsize=36]\n"
         f.write("" + member.getLabel() + nodeAttr)
 
         #rankStr = ""
@@ -316,7 +332,7 @@ def onSearchMember():
 def onRender():
     print("Start on render")
     dot = Digraph(comment='The Round Table', engine='dot', format='png')
-    dot.attr(overlap='false', fixedsize='true', lwidth='50', ranksep="0.1",pad="1", nodesep='0.2', image='tile.png', dimen='3')
+    dot.attr(image='tile.png', dimen='3')
     print("onRender " + str(len(allMembers)))
     
     
