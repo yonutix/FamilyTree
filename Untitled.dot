@@ -1,0 +1,443 @@
+digraph {
+graph [label="Arbore genealogic,2019-11-25, ionut.cosmin.mihai@gmail.com", labelloc=b, fontsize=72, fontcolor=black,  fontname=Courier, bgcolor="#ffffff"];
+edge [color=white, arrowhead=open, fontname=Courier, fontcolor=black, color=black, penwidth=3, arrowsize=3];
+node [shape=plaintext, fontcolor=black, color=black];
+    1900[label=1900 fontsize=72 shape=plaintext];
+    1904[label=1904 fontsize=72 shape=plaintext];
+    1914[label=1914 fontsize=72 shape=plaintext];
+    1930[label=1930 fontsize=72 shape=plaintext];
+    1931[label=1931 fontsize=72 shape=plaintext];
+    1932[label=1932 fontsize=72 shape=plaintext];
+    1933[label=1933 fontsize=72 shape=plaintext];
+    1934[label=1934 fontsize=72 shape=plaintext];
+    1935[label=1935 fontsize=72 shape=plaintext];
+    1936[label=1936 fontsize=72 shape=plaintext];
+    1937[label=1937 fontsize=72 shape=plaintext];
+    1938[label=1938 fontsize=72 shape=plaintext];
+    1940[label=1940 fontsize=72 shape=plaintext];
+    1941[label=1941 fontsize=72 shape=plaintext];
+    1943[label=1943 fontsize=72 shape=plaintext];
+    1944[label=1944 fontsize=72 shape=plaintext];
+    1947[label=1947 fontsize=72 shape=plaintext];
+    1950[label=1950 fontsize=72 shape=plaintext];
+    1955[label=1955 fontsize=72 shape=plaintext];
+    1959[label=1959 fontsize=72 shape=plaintext];
+    1964[label=1964 fontsize=72 shape=plaintext];
+    1965[label=1965 fontsize=72 shape=plaintext];
+    1966[label=1966 fontsize=72 shape=plaintext];
+    1967[label=1967 fontsize=72 shape=plaintext];
+    1968[label=1968 fontsize=72 shape=plaintext];
+    1969[label=1969 fontsize=72 shape=plaintext];
+    1970[label=1970 fontsize=72 shape=plaintext];
+    1972[label=1972 fontsize=72 shape=plaintext];
+    1974[label=1974 fontsize=72 shape=plaintext];
+    1975[label=1975 fontsize=72 shape=plaintext];
+    1978[label=1978 fontsize=72 shape=plaintext];
+    1980[label=1980 fontsize=72 shape=plaintext];
+    1981[label=1981 fontsize=72 shape=plaintext];
+    1985[label=1985 fontsize=72 shape=plaintext];
+    1987[label=1987 fontsize=72 shape=plaintext];
+    1988[label=1988 fontsize=72 shape=plaintext];
+    1990[label=1990 fontsize=72 shape=plaintext];
+    1991[label=1991 fontsize=72 shape=plaintext];
+    1992[label=1992 fontsize=72 shape=plaintext];
+    1993[label=1993 fontsize=72 shape=plaintext];
+    1994[label=1994 fontsize=72 shape=plaintext];
+    1995[label=1995 fontsize=72 shape=plaintext];
+    1996[label=1996 fontsize=72 shape=plaintext];
+    2002[label=2002 fontsize=72 shape=plaintext];
+    2003[label=2003 fontsize=72 shape=plaintext];
+    2005[label=2005 fontsize=72 shape=plaintext];
+    2007[label=2007 fontsize=72 shape=plaintext];
+    2011[label=2011 fontsize=72 shape=plaintext];
+    2017[label=2017 fontsize=72 shape=plaintext];
+    2019[label=2019 fontsize=72 shape=plaintext];
+    1900 -> 1904[style=invis];
+    1904 -> 1914[style=invis];
+    1914 -> 1930[style=invis];
+    1930 -> 1931[style=invis];
+    1931 -> 1932[style=invis];
+    1932 -> 1933[style=invis];
+    1933 -> 1934[style=invis];
+    1934 -> 1935[style=invis];
+    1935 -> 1936[style=invis];
+    1936 -> 1937[style=invis];
+    1937 -> 1938[style=invis];
+    1938 -> 1940[style=invis];
+    1940 -> 1941[style=invis];
+    1941 -> 1943[style=invis];
+    1943 -> 1944[style=invis];
+    1944 -> 1947[style=invis];
+    1947 -> 1950[style=invis];
+    1950 -> 1955[style=invis];
+    1955 -> 1959[style=invis];
+    1959 -> 1964[style=invis];
+    1964 -> 1965[style=invis];
+    1965 -> 1966[style=invis];
+    1966 -> 1967[style=invis];
+    1967 -> 1968[style=invis];
+    1968 -> 1969[style=invis];
+    1969 -> 1970[style=invis];
+    1970 -> 1972[style=invis];
+    1972 -> 1974[style=invis];
+    1974 -> 1975[style=invis];
+    1975 -> 1978[style=invis];
+    1978 -> 1980[style=invis];
+    1980 -> 1981[style=invis];
+    1981 -> 1985[style=invis];
+    1985 -> 1987[style=invis];
+    1987 -> 1988[style=invis];
+    1988 -> 1990[style=invis];
+    1990 -> 1991[style=invis];
+    1991 -> 1992[style=invis];
+    1992 -> 1993[style=invis];
+    1993 -> 1994[style=invis];
+    1994 -> 1995[style=invis];
+    1995 -> 1996[style=invis];
+    1996 -> 2002[style=invis];
+    2002 -> 2003[style=invis];
+    2003 -> 2005[style=invis];
+    2005 -> 2007[style=invis];
+    2007 -> 2011[style=invis];
+    2011 -> 2017[style=invis];
+    2017 -> 2019[style=invis];
+A[label=<<TABLE border="0" align="left"><TR> <TD><IMG SRC="C:\Users\Cosmin\Desktop\FamilyTree\man.png" /></TD> <TD>MIHAI Ionut Cosmin <BR />Gen: M<BR />Data de nastere: 1991<BR /></TD></TR></TABLE>> fontsize=24]
+{rank = same; A; 1991;}
+B[label=<<TABLE border="0" align="left"><TR> <TD><IMG SRC="C:\Users\Cosmin\Desktop\FamilyTree\woman.png" /></TD> <TD>MIHAI Violeta <BR />Gen: F<BR />Data de nastere: 2002<BR />Nume de familie nastere:  MIHAI</TD></TR></TABLE>> fontsize=24]
+{rank = same; B; 2002;}
+C[label=<<TABLE border="0" align="left"><TR> <TD><IMG SRC="C:\Users\Cosmin\Desktop\FamilyTree\woman.png" /></TD> <TD>TARCUS Mariana-Luminita <BR />Gen: F<BR />Data de nastere: 1967<BR />Nume de familie nastere:  TARCUS</TD></TR></TABLE>> fontsize=24]
+{rank = same; C; 1967;}
+D[label=<<TABLE border="0" align="left"><TR> <TD><IMG SRC="C:\Users\Cosmin\Desktop\FamilyTree\man.png" /></TD> <TD>MIHAI Sorin-Adi <BR />Gen: M<BR />Data de nastere: 1965<BR /></TD></TR></TABLE>> fontsize=24]
+{rank = same; D; 1965;}
+E[label=<<TABLE border="0" align="left"><TR> <TD><IMG SRC="C:\Users\Cosmin\Desktop\FamilyTree\woman.png" /></TD> <TD>TARCUS Ileana <BR />Gen: F<BR />Data de nastere: 1934<BR />Nume de familie nastere:  GHICA</TD></TR></TABLE>> fontsize=24]
+{rank = same; E; 1934;}
+F[label=<<TABLE border="0" align="left"><TR> <TD><IMG SRC="C:\Users\Cosmin\Desktop\FamilyTree\man.png" /></TD> <TD>TARCUS Nicolae <BR />Gen: M<BR />Data de nastere: 1936<BR /></TD></TR></TABLE>> fontsize=24]
+{rank = same; F; 1936;}
+G[label=<<TABLE border="0" align="left"><TR> <TD><IMG SRC="C:\Users\Cosmin\Desktop\FamilyTree\man.png" /></TD> <TD>MIHAI Ion <BR />Gen: M<BR />Data de nastere: 1950<BR /></TD></TR></TABLE>> fontsize=24]
+{rank = same; G; 1950;}
+H[label=<<TABLE border="0" align="left"><TR> <TD><IMG SRC="C:\Users\Cosmin\Desktop\FamilyTree\woman.png" /></TD> <TD>CAPATANA Viorica <BR />Gen: F<BR />Data de nastere: 1969<BR />Nume de familie nastere:  TARCUS</TD></TR></TABLE>> fontsize=24]
+{rank = same; H; 1969;}
+I[label=<<TABLE border="0" align="left"><TR> <TD><IMG SRC="C:\Users\Cosmin\Desktop\FamilyTree\woman.png" /></TD> <TD>CAPATANA Cristina Elena <BR />Gen: F<BR />Data de nastere: 1993<BR />Nume de familie nastere:  CAPATANA</TD></TR></TABLE>> fontsize=24]
+{rank = same; I; 1993;}
+J[label=<<TABLE border="0" align="left"><TR> <TD><IMG SRC="C:\Users\Cosmin\Desktop\FamilyTree\woman.png" /></TD> <TD>CAPATANA Ana-Maria <BR />Gen: F<BR />Data de nastere: 2005<BR />Nume de familie nastere:  CAPATANA</TD></TR></TABLE>> fontsize=24]
+{rank = same; J; 2005;}
+AB[label=<<TABLE border="0" align="left"><TR> <TD><IMG SRC="C:\Users\Cosmin\Desktop\FamilyTree\man.png" /></TD> <TD>CAPATANA Petre Marian <BR />Gen: M<BR />Data de nastere: 1968<BR /></TD></TR></TABLE>> fontsize=24]
+{rank = same; AB; 1968;}
+BB[label=<<TABLE border="0" align="left"><TR> <TD><IMG SRC="C:\Users\Cosmin\Desktop\FamilyTree\man.png" /></TD> <TD>ILIE Stefan Ovidiu <BR />Gen: M<BR />Data de nastere: 1992<BR /></TD></TR></TABLE>> fontsize=24]
+{rank = same; BB; 1992;}
+CB[label=<<TABLE border="0" align="left"><TR> <TD><IMG SRC="C:\Users\Cosmin\Desktop\FamilyTree\man.png" /></TD> <TD>ILIE Stefan <BR />Gen: M<BR />Data de nastere: 1969<BR /></TD></TR></TABLE>> fontsize=24]
+{rank = same; CB; 1969;}
+DB[label=<<TABLE border="0" align="left"><TR> <TD><IMG SRC="C:\Users\Cosmin\Desktop\FamilyTree\man.png" /></TD> <TD>ILIE Mihai <BR />Gen: M<BR />Data de nastere: 2007<BR /></TD></TR></TABLE>> fontsize=24]
+{rank = same; DB; 2007;}
+EB[label=<<TABLE border="0" align="left"><TR> <TD><IMG SRC="C:\Users\Cosmin\Desktop\FamilyTree\man.png" /></TD> <TD>ILIE Denis <BR />Gen: M<BR />Data de nastere: 2005<BR /></TD></TR></TABLE>> fontsize=24]
+{rank = same; EB; 2005;}
+FB[label=<<TABLE border="0" align="left"><TR> <TD><IMG SRC="C:\Users\Cosmin\Desktop\FamilyTree\woman.png" /></TD> <TD>ILIE Luciana <BR />Gen: F<BR />Data de nastere: 1970<BR />Nume de familie nastere:  TARCUS</TD></TR></TABLE>> fontsize=24]
+{rank = same; FB; 1970;}
+GB[label=<<TABLE border="0" align="left"><TR> <TD><IMG SRC="C:\Users\Cosmin\Desktop\FamilyTree\man.png" /></TD> <TD>COSTACHE Gheorghe <BR />Gen: M<BR />Data de nastere: 1964<BR /></TD></TR></TABLE>> fontsize=24]
+{rank = same; GB; 1964;}
+HB[label=<<TABLE border="0" align="left"><TR> <TD><IMG SRC="C:\Users\Cosmin\Desktop\FamilyTree\man.png" /></TD> <TD>COSTACHE Mihai Georgian <BR />Gen: M<BR />Data de nastere: 1987<BR /></TD></TR></TABLE>> fontsize=24]
+{rank = same; HB; 1987;}
+IB[label=<<TABLE border="0" align="left"><TR> <TD><IMG SRC="C:\Users\Cosmin\Desktop\FamilyTree\woman.png" /></TD> <TD>COSTACHE Daniela Ioana <BR />Gen: F<BR />Data de nastere: 1965<BR />Nume de familie nastere:  TARCUS</TD></TR></TABLE>> fontsize=24]
+{rank = same; IB; 1965;}
+JB[label=<<TABLE border="0" align="left"><TR> <TD><IMG SRC="C:\Users\Cosmin\Desktop\FamilyTree\man.png" /></TD> <TD>COSTACHE Adrian <BR />Gen: M<BR />Data de nastere: 1992<BR /></TD></TR></TABLE>> fontsize=24]
+{rank = same; JB; 1992;}
+AC[label=<<TABLE border="0" align="left"><TR> <TD><IMG SRC="C:\Users\Cosmin\Desktop\FamilyTree\woman.png" /></TD> <TD>TARCUS Nicoleta <BR />Gen: F<BR />Data de nastere: 1974<BR />Nume de familie nastere:  TARCUS</TD></TR></TABLE>> fontsize=24]
+{rank = same; AC; 1974;}
+BC[label=<<TABLE border="0" align="left"><TR> <TD><IMG SRC="C:\Users\Cosmin\Desktop\FamilyTree\woman.png" /></TD> <TD>MIHAI Mihaela <BR />Gen: F<BR />Data de nastere: 1968<BR />Nume de familie nastere:  MIHAI</TD></TR></TABLE>> fontsize=24]
+{rank = same; BC; 1968;}
+CC[label=<<TABLE border="0" align="left"><TR> <TD><IMG SRC="C:\Users\Cosmin\Desktop\FamilyTree\woman.png" /></TD> <TD>ROSU Ioana <BR />Gen: F<BR />Data de nastere: 1995<BR />Nume de familie nastere:  ROSU</TD></TR></TABLE>> fontsize=24]
+{rank = same; CC; 1995;}
+DC[label=<<TABLE border="0" align="left"><TR> <TD><IMG SRC="C:\Users\Cosmin\Desktop\FamilyTree\man.png" /></TD> <TD>CAPATANA Emil <BR />Gen: M<BR />Data de nastere: 1970<BR /></TD></TR></TABLE>> fontsize=24]
+{rank = same; DC; 1970;}
+EC[label=<<TABLE border="0" align="left"><TR> <TD><IMG SRC="C:\Users\Cosmin\Desktop\FamilyTree\woman.png" /></TD> <TD>CAPATANA Mariana <BR />Gen: F<BR />Data de nastere: 1969<BR />Nume de familie nastere:  NA</TD></TR></TABLE>> fontsize=24]
+{rank = same; EC; 1969;}
+FC[label=<<TABLE border="0" align="left"><TR> <TD><IMG SRC="C:\Users\Cosmin\Desktop\FamilyTree\man.png" /></TD> <TD>CAPATANA Cosmin <BR />Gen: M<BR />Data de nastere: 1990<BR /></TD></TR></TABLE>> fontsize=24]
+{rank = same; FC; 1990;}
+GC[label=<<TABLE border="0" align="left"><TR> <TD><IMG SRC="C:\Users\Cosmin\Desktop\FamilyTree\woman.png" /></TD> <TD>DIBA Andra <BR />Gen: F<BR />Data de nastere: 1992<BR />Nume de familie nastere:  CAPATANA</TD></TR></TABLE>> fontsize=24]
+{rank = same; GC; 1992;}
+HC[label=<<TABLE border="0" align="left"><TR> <TD><IMG SRC="C:\Users\Cosmin\Desktop\FamilyTree\woman.png" /></TD> <TD>CAPATANA Antoana <BR />Gen: F<BR />Data de nastere: 1934<BR />Nume de familie nastere:  NA</TD></TR></TABLE>> fontsize=24]
+{rank = same; HC; 1934;}
+IC[label=<<TABLE border="0" align="left"><TR> <TD><IMG SRC="C:\Users\Cosmin\Desktop\FamilyTree\man.png" /></TD> <TD>CAPATANA Virgil <BR />Gen: M<BR />Data de nastere: 1935<BR /></TD></TR></TABLE>> fontsize=24]
+{rank = same; IC; 1935;}
+JC[label=<<TABLE border="0" align="left"><TR> <TD><IMG SRC="C:\Users\Cosmin\Desktop\FamilyTree\man.png" /></TD> <TD>ILIE Vasile <BR />Gen: M<BR />Data de nastere: 1940<BR /></TD></TR></TABLE>> fontsize=24]
+{rank = same; JC; 1940;}
+AD[label=<<TABLE border="0" align="left"><TR> <TD><IMG SRC="C:\Users\Cosmin\Desktop\FamilyTree\woman.png" /></TD> <TD>ILIE Ioana <BR />Gen: F<BR />Data de nastere: 1940<BR />Nume de familie nastere:  NA</TD></TR></TABLE>> fontsize=24]
+{rank = same; AD; 1940;}
+BD[label=<<TABLE border="0" align="left"><TR> <TD><IMG SRC="C:\Users\Cosmin\Desktop\FamilyTree\man.png" /></TD> <TD>GHICA Florea <BR />Gen: M<BR />Data de nastere: 1900<BR /></TD></TR></TABLE>> fontsize=24]
+{rank = same; BD; 1900;}
+CD[label=<<TABLE border="0" align="left"><TR> <TD><IMG SRC="C:\Users\Cosmin\Desktop\FamilyTree\woman.png" /></TD> <TD>GHICA Dumitra <BR />Gen: F<BR />Data de nastere: 1914<BR />Nume de familie nastere:  NA</TD></TR></TABLE>> fontsize=24]
+{rank = same; CD; 1914;}
+DD[label=<<TABLE border="0" align="left"><TR> <TD><IMG SRC="C:\Users\Cosmin\Desktop\FamilyTree\man.png" /></TD> <TD>JIANU Ion <BR />Gen: M<BR />Data de nastere: 1900<BR /></TD></TR></TABLE>> fontsize=24]
+{rank = same; DD; 1900;}
+ED[label=<<TABLE border="0" align="left"><TR> <TD><IMG SRC="C:\Users\Cosmin\Desktop\FamilyTree\woman.png" /></TD> <TD>JIANU Maria <BR />Gen: F<BR />Data de nastere: 1900<BR />Nume de familie nastere:  NA</TD></TR></TABLE>> fontsize=24]
+{rank = same; ED; 1900;}
+FD[label=<<TABLE border="0" align="left"><TR> <TD><IMG SRC="C:\Users\Cosmin\Desktop\FamilyTree\man.png" /></TD> <TD>COSTACHE Dumitru <BR />Gen: M<BR />Data de nastere: 1930<BR /></TD></TR></TABLE>> fontsize=24]
+{rank = same; FD; 1930;}
+GD[label=<<TABLE border="0" align="left"><TR> <TD><IMG SRC="C:\Users\Cosmin\Desktop\FamilyTree\man.png" /></TD> <TD>COSTACHE Radu <BR />Gen: M<BR />Data de nastere: 1970<BR /></TD></TR></TABLE>> fontsize=24]
+{rank = same; GD; 1970;}
+HD[label=<<TABLE border="0" align="left"><TR> <TD><IMG SRC="C:\Users\Cosmin\Desktop\FamilyTree\woman.png" /></TD> <TD>COSTACHE Georgica <BR />Gen: F<BR />Data de nastere: 1970<BR />Nume de familie nastere:  NA</TD></TR></TABLE>> fontsize=24]
+{rank = same; HD; 1970;}
+ID[label=<<TABLE border="0" align="left"><TR> <TD><IMG SRC="C:\Users\Cosmin\Desktop\FamilyTree\woman.png" /></TD> <TD>COSTACHE Alina <BR />Gen: F<BR />Data de nastere: 1985<BR />Nume de familie nastere:  COSTACHE</TD></TR></TABLE>> fontsize=24]
+{rank = same; ID; 1985;}
+JD[label=<<TABLE border="0" align="left"><TR> <TD><IMG SRC="C:\Users\Cosmin\Desktop\FamilyTree\woman.png" /></TD> <TD>GHICA Floarea <BR />Gen: F<BR />Data de nastere: 1932<BR />Nume de familie nastere:  GHICA</TD></TR></TABLE>> fontsize=24]
+{rank = same; JD; 1932;}
+AE[label=<<TABLE border="0" align="left"><TR> <TD><IMG SRC="C:\Users\Cosmin\Desktop\FamilyTree\woman.png" /></TD> <TD>STATE Maria <BR />Gen: F<BR />Data de nastere: 1937<BR />Nume de familie nastere:  GHICA</TD></TR></TABLE>> fontsize=24]
+{rank = same; AE; 1937;}
+BE[label=<<TABLE border="0" align="left"><TR> <TD><IMG SRC="C:\Users\Cosmin\Desktop\FamilyTree\man.png" /></TD> <TD>STATE Ion <BR />Gen: M<BR />Data de nastere: 1950<BR /></TD></TR></TABLE>> fontsize=24]
+{rank = same; BE; 1950;}
+CE[label=<<TABLE border="0" align="left"><TR> <TD><IMG SRC="C:\Users\Cosmin\Desktop\FamilyTree\woman.png" /></TD> <TD>MANOLESCU Ioana <BR />Gen: F<BR />Data de nastere: 1935<BR />Nume de familie nastere:  GHICA</TD></TR></TABLE>> fontsize=24]
+{rank = same; CE; 1935;}
+DE[label=<<TABLE border="0" align="left"><TR> <TD><IMG SRC="C:\Users\Cosmin\Desktop\FamilyTree\man.png" /></TD> <TD>MANOLESCU Ion <BR />Gen: M<BR />Data de nastere: 1950<BR /></TD></TR></TABLE>> fontsize=24]
+{rank = same; DE; 1950;}
+EE[label=<<TABLE border="0" align="left"><TR> <TD><IMG SRC="C:\Users\Cosmin\Desktop\FamilyTree\woman.png" /></TD> <TD>MANOLESCU Olga <BR />Gen: F<BR />Data de nastere: 1970<BR />Nume de familie nastere:  MANOLESCU</TD></TR></TABLE>> fontsize=24]
+{rank = same; EE; 1970;}
+FE[label=<<TABLE border="0" align="left"><TR> <TD><IMG SRC="C:\Users\Cosmin\Desktop\FamilyTree\woman.png" /></TD> <TD>MANOLESCU Ana <BR />Gen: F<BR />Data de nastere: 1967<BR />Nume de familie nastere:  MANOLESCU</TD></TR></TABLE>> fontsize=24]
+{rank = same; FE; 1967;}
+GE[label=<<TABLE border="0" align="left"><TR> <TD><IMG SRC="C:\Users\Cosmin\Desktop\FamilyTree\man.png" /></TD> <TD>MANOLESCU Constantin <BR />Gen: M<BR />Data de nastere: 1966<BR /></TD></TR></TABLE>> fontsize=24]
+{rank = same; GE; 1966;}
+HE[label=<<TABLE border="0" align="left"><TR> <TD><IMG SRC="C:\Users\Cosmin\Desktop\FamilyTree\man.png" /></TD> <TD>MANOLESCU Ion <BR />Gen: M<BR />Data de nastere: 1965<BR /></TD></TR></TABLE>> fontsize=24]
+{rank = same; HE; 1965;}
+IE[label=<<TABLE border="0" align="left"><TR> <TD><IMG SRC="C:\Users\Cosmin\Desktop\FamilyTree\man.png" /></TD> <TD>GHICA Gheorghe <BR />Gen: M<BR />Data de nastere: 1943<BR /></TD></TR></TABLE>> fontsize=24]
+{rank = same; IE; 1943;}
+JE[label=<<TABLE border="0" align="left"><TR> <TD><IMG SRC="C:\Users\Cosmin\Desktop\FamilyTree\man.png" /></TD> <TD>GHICA Ilie <BR />Gen: M<BR />Data de nastere: 1947<BR /></TD></TR></TABLE>> fontsize=24]
+{rank = same; JE; 1947;}
+AF[label=<<TABLE border="0" align="left"><TR> <TD><IMG SRC="C:\Users\Cosmin\Desktop\FamilyTree\woman.png" /></TD> <TD>GHICA Floarea <BR />Gen: F<BR />Data de nastere: 1938<BR />Nume de familie nastere:  GHICA</TD></TR></TABLE>> fontsize=24]
+{rank = same; AF; 1938;}
+BF[label=<<TABLE border="0" align="left"><TR> <TD><IMG SRC="C:\Users\Cosmin\Desktop\FamilyTree\man.png" /></TD> <TD>GHICA Sergiu <BR />Gen: M<BR />Data de nastere: 1975<BR /></TD></TR></TABLE>> fontsize=24]
+{rank = same; BF; 1975;}
+CF[label=<<TABLE border="0" align="left"><TR> <TD><IMG SRC="C:\Users\Cosmin\Desktop\FamilyTree\woman.png" /></TD> <TD>GHICA Camelia <BR />Gen: F<BR />Data de nastere: 1980<BR />Nume de familie nastere:  GHICA</TD></TR></TABLE>> fontsize=24]
+{rank = same; CF; 1980;}
+DF[label=<<TABLE border="0" align="left"><TR> <TD><IMG SRC="C:\Users\Cosmin\Desktop\FamilyTree\man.png" /></TD> <TD>GHICA Iulian <BR />Gen: M<BR />Data de nastere: 1972<BR /></TD></TR></TABLE>> fontsize=24]
+{rank = same; DF; 1972;}
+EF[label=<<TABLE border="0" align="left"><TR> <TD><IMG SRC="C:\Users\Cosmin\Desktop\FamilyTree\man.png" /></TD> <TD>GHICA Ion <BR />Gen: M<BR />Data de nastere: 1970<BR /></TD></TR></TABLE>> fontsize=24]
+{rank = same; EF; 1970;}
+FF[label=<<TABLE border="0" align="left"><TR> <TD><IMG SRC="C:\Users\Cosmin\Desktop\FamilyTree\man.png" /></TD> <TD>GHICA Ion <BR />Gen: M<BR />Data de nastere: 1944<BR /></TD></TR></TABLE>> fontsize=24]
+{rank = same; FF; 1944;}
+GF[label=<<TABLE border="0" align="left"><TR> <TD><IMG SRC="C:\Users\Cosmin\Desktop\FamilyTree\woman.png" /></TD> <TD>GHICA Rodica <BR />Gen: F<BR />Data de nastere: 1934<BR />Nume de familie nastere:  GHICA</TD></TR></TABLE>> fontsize=24]
+{rank = same; GF; 1934;}
+HF[label=<<TABLE border="0" align="left"><TR> <TD><IMG SRC="C:\Users\Cosmin\Desktop\FamilyTree\man.png" /></TD> <TD>GHICA Costel <BR />Gen: M<BR />Data de nastere: 1950<BR /></TD></TR></TABLE>> fontsize=24]
+{rank = same; HF; 1950;}
+IF[label=<<TABLE border="0" align="left"><TR> <TD><IMG SRC="C:\Users\Cosmin\Desktop\FamilyTree\woman.png" /></TD> <TD>MANOLESCU Liliana <BR />Gen: F<BR />Data de nastere: 1980<BR />Nume de familie nastere:  NA</TD></TR></TABLE>> fontsize=24]
+{rank = same; IF; 1980;}
+JF[label=<<TABLE border="0" align="left"><TR> <TD><IMG SRC="C:\Users\Cosmin\Desktop\FamilyTree\woman.png" /></TD> <TD>PARVAN Argentina <BR />Gen: F<BR />Data de nastere: 1959<BR />Nume de familie nastere:  CAPATANA</TD></TR></TABLE>> fontsize=24]
+{rank = same; JF; 1959;}
+AG[label=<<TABLE border="0" align="left"><TR> <TD><IMG SRC="C:\Users\Cosmin\Desktop\FamilyTree\man.png" /></TD> <TD>PARVAN Dumitru <BR />Gen: M<BR />Data de nastere: 1955<BR /></TD></TR></TABLE>> fontsize=24]
+{rank = same; AG; 1955;}
+BG[label=<<TABLE border="0" align="left"><TR> <TD><IMG SRC="C:\Users\Cosmin\Desktop\FamilyTree\woman.png" /></TD> <TD>PARVAN Nicoleta <BR />Gen: F<BR />Data de nastere: 1981<BR />Nume de familie nastere:  PARVAN</TD></TR></TABLE>> fontsize=24]
+{rank = same; BG; 1981;}
+CG[label=<<TABLE border="0" align="left"><TR> <TD><IMG SRC="C:\Users\Cosmin\Desktop\FamilyTree\man.png" /></TD> <TD>PARVAN Ianis <BR />Gen: M<BR />Data de nastere: 1978<BR /></TD></TR></TABLE>> fontsize=24]
+{rank = same; CG; 1978;}
+DG[label=<<TABLE border="0" align="left"><TR> <TD><IMG SRC="C:\Users\Cosmin\Desktop\FamilyTree\woman.png" /></TD> <TD>GRIGORESCU Raluca-Elena <BR />Gen: F<BR />Data de nastere: 1993<BR />Nume de familie nastere:  GRIGORESCU</TD></TR></TABLE>> fontsize=24]
+{rank = same; DG; 1993;}
+EG[label=<<TABLE border="0" align="left"><TR> <TD><IMG SRC="C:\Users\Cosmin\Desktop\FamilyTree\man.png" /></TD> <TD>GRIGORESCU Dan <BR />Gen: M<BR />Data de nastere: 1969<BR /></TD></TR></TABLE>> fontsize=24]
+{rank = same; EG; 1969;}
+FG[label=<<TABLE border="0" align="left"><TR> <TD><IMG SRC="C:\Users\Cosmin\Desktop\FamilyTree\woman.png" /></TD> <TD>GRIGORESCU Ileana <BR />Gen: F<BR />Data de nastere: 1968<BR />Nume de familie nastere:  TITEL</TD></TR></TABLE>> fontsize=24]
+{rank = same; FG; 1968;}
+GG[label=<<TABLE border="0" align="left"><TR> <TD><IMG SRC="C:\Users\Cosmin\Desktop\FamilyTree\woman.png" /></TD> <TD>COSTACHE Daniela <BR />Gen: F<BR />Data de nastere: 1988<BR />Nume de familie nastere:  CALINA</TD></TR></TABLE>> fontsize=24]
+{rank = same; GG; 1988;}
+HG[label=<<TABLE border="0" align="left"><TR> <TD><IMG SRC="C:\Users\Cosmin\Desktop\FamilyTree\man.png" /></TD> <TD>ROSU Florin <BR />Gen: M<BR />Data de nastere: 1965<BR /></TD></TR></TABLE>> fontsize=24]
+{rank = same; HG; 1965;}
+IG[label=<<TABLE border="0" align="left"><TR> <TD><IMG SRC="C:\Users\Cosmin\Desktop\FamilyTree\woman.png" /></TD> <TD>CAPATANA Elena Cristina <BR />Gen: F<BR />Data de nastere: 1992<BR />Nume de familie nastere:  NA</TD></TR></TABLE>> fontsize=24]
+{rank = same; IG; 1992;}
+JG[label=<<TABLE border="0" align="left"><TR> <TD><IMG SRC="C:\Users\Cosmin\Desktop\FamilyTree\man.png" /></TD> <TD>CAPATANA Darius Gabriel <BR />Gen: M<BR />Data de nastere: 2017<BR /></TD></TR></TABLE>> fontsize=24]
+{rank = same; JG; 2017;}
+AH[label=<<TABLE border="0" align="left"><TR> <TD><IMG SRC="C:\Users\Cosmin\Desktop\FamilyTree\man.png" /></TD> <TD>DIBA Andrei Costin <BR />Gen: M<BR />Data de nastere: 1993<BR /></TD></TR></TABLE>> fontsize=24]
+{rank = same; AH; 1993;}
+BH[label=<<TABLE border="0" align="left"><TR> <TD><IMG SRC="C:\Users\Cosmin\Desktop\FamilyTree\man.png" /></TD> <TD>DIBA Untitled <BR />Gen: M<BR />Data de nastere: 2019<BR /></TD></TR></TABLE>> fontsize=24]
+{rank = same; BH; 2019;}
+CH[label=<<TABLE border="0" align="left"><TR> <TD><IMG SRC="C:\Users\Cosmin\Desktop\FamilyTree\woman.png" /></TD> <TD>TITEL Elena <BR />Gen: F<BR />Data de nastere: 1941<BR />Nume de familie nastere:  SIIULESCU</TD></TR></TABLE>> fontsize=24]
+{rank = same; CH; 1941;}
+DH[label=<<TABLE border="0" align="left"><TR> <TD><IMG SRC="C:\Users\Cosmin\Desktop\FamilyTree\man.png" /></TD> <TD>TITEL Gheorghe <BR />Gen: M<BR />Data de nastere: 1938<BR /></TD></TR></TABLE>> fontsize=24]
+{rank = same; DH; 1938;}
+EH[label=<<TABLE border="0" align="left"><TR> <TD><IMG SRC="C:\Users\Cosmin\Desktop\FamilyTree\woman.png" /></TD> <TD>ISPAS Gherghina <BR />Gen: F<BR />Data de nastere: 1900<BR />Nume de familie nastere:  NA</TD></TR></TABLE>> fontsize=24]
+{rank = same; EH; 1900;}
+FH[label=<<TABLE border="0" align="left"><TR> <TD><IMG SRC="C:\Users\Cosmin\Desktop\FamilyTree\man.png" /></TD> <TD>ISPAS Emilian <BR />Gen: M<BR />Data de nastere: 1900<BR /></TD></TR></TABLE>> fontsize=24]
+{rank = same; FH; 1900;}
+GH[label=<<TABLE border="0" align="left"><TR> <TD><IMG SRC="C:\Users\Cosmin\Desktop\FamilyTree\man.png" /></TD> <TD>GRIGORESCU Stana <BR />Gen: M<BR />Data de nastere: 1900<BR /></TD></TR></TABLE>> fontsize=24]
+{rank = same; GH; 1900;}
+HH[label=<<TABLE border="0" align="left"><TR> <TD><IMG SRC="C:\Users\Cosmin\Desktop\FamilyTree\man.png" /></TD> <TD>GRIGORESCU Sevastian <BR />Gen: M<BR />Data de nastere: 1900<BR /></TD></TR></TABLE>> fontsize=24]
+{rank = same; HH; 1900;}
+IH[label=<<TABLE border="0" align="left"><TR> <TD><IMG SRC="C:\Users\Cosmin\Desktop\FamilyTree\woman.png" /></TD> <TD>GRIGORESCU Ioana <BR />Gen: F<BR />Data de nastere: 1944<BR />Nume de familie nastere:  ISPAS</TD></TR></TABLE>> fontsize=24]
+{rank = same; IH; 1944;}
+JH[label=<<TABLE border="0" align="left"><TR> <TD><IMG SRC="C:\Users\Cosmin\Desktop\FamilyTree\man.png" /></TD> <TD>GRIGORESCU Cosnstantin <BR />Gen: M<BR />Data de nastere: 1931<BR /></TD></TR></TABLE>> fontsize=24]
+{rank = same; JH; 1931;}
+AI[label=<<TABLE border="0" align="left"><TR> <TD><IMG SRC="C:\Users\Cosmin\Desktop\FamilyTree\man.png" /></TD> <TD>SIIULESCU Ion <BR />Gen: M<BR />Data de nastere: 1900<BR /></TD></TR></TABLE>> fontsize=24]
+{rank = same; AI; 1900;}
+BI[label=<<TABLE border="0" align="left"><TR> <TD><IMG SRC="C:\Users\Cosmin\Desktop\FamilyTree\woman.png" /></TD> <TD>SIIULESCU Ioana <BR />Gen: F<BR />Data de nastere: 1900<BR />Nume de familie nastere:  NA</TD></TR></TABLE>> fontsize=24]
+{rank = same; BI; 1900;}
+CI[label=<<TABLE border="0" align="left"><TR> <TD><IMG SRC="C:\Users\Cosmin\Desktop\FamilyTree\man.png" /></TD> <TD>TITEL Gheorghita <BR />Gen: M<BR />Data de nastere: 1965<BR /></TD></TR></TABLE>> fontsize=24]
+{rank = same; CI; 1965;}
+DI[label=<<TABLE border="0" align="left"><TR> <TD><IMG SRC="C:\Users\Cosmin\Desktop\FamilyTree\woman.png" /></TD> <TD>TITEL Mihaela Paula <BR />Gen: F<BR />Data de nastere: 1969<BR />Nume de familie nastere:  BICA</TD></TR></TABLE>> fontsize=24]
+{rank = same; DI; 1969;}
+EI[label=<<TABLE border="0" align="left"><TR> <TD><IMG SRC="C:\Users\Cosmin\Desktop\FamilyTree\man.png" /></TD> <TD>TITEL Vlad Gheorghita <BR />Gen: M<BR />Data de nastere: 1994<BR /></TD></TR></TABLE>> fontsize=24]
+{rank = same; EI; 1994;}
+FI[label=<<TABLE border="0" align="left"><TR> <TD><IMG SRC="C:\Users\Cosmin\Desktop\FamilyTree\man.png" /></TD> <TD>TITEL FLorin Catalin <BR />Gen: M<BR />Data de nastere: 1996<BR /></TD></TR></TABLE>> fontsize=24]
+{rank = same; FI; 1996;}
+GI[label=<<TABLE border="0" align="left"><TR> <TD><IMG SRC="C:\Users\Cosmin\Desktop\FamilyTree\man.png" /></TD> <TD>COSTACHE Dominic Stefan <BR />Gen: M<BR />Data de nastere: 2019<BR /></TD></TR></TABLE>> fontsize=24]
+{rank = same; GI; 2019;}
+HI[label=<<TABLE border="0" align="left"><TR> <TD><IMG SRC="C:\Users\Cosmin\Desktop\FamilyTree\man.png" /></TD> <TD>TARCUS Alexandru <BR />Gen: M<BR />Data de nastere: 1900<BR /></TD></TR></TABLE>> fontsize=24]
+{rank = same; HI; 1900;}
+II[label=<<TABLE border="0" align="left"><TR> <TD><IMG SRC="C:\Users\Cosmin\Desktop\FamilyTree\woman.png" /></TD> <TD>TARCUS Ioana <BR />Gen: F<BR />Data de nastere: 1904<BR />Nume de familie nastere:  NA</TD></TR></TABLE>> fontsize=24]
+{rank = same; II; 1904;}
+JI[label=<<TABLE border="0" align="left"><TR> <TD><IMG SRC="C:\Users\Cosmin\Desktop\FamilyTree\woman.png" /></TD> <TD>MATACHE Rada(Ricuta) <BR />Gen: F<BR />Data de nastere: 1933<BR />Nume de familie nastere:  TARCUS</TD></TR></TABLE>> fontsize=24]
+{rank = same; JI; 1933;}
+AJ[label=<<TABLE border="0" align="left"><TR> <TD><IMG SRC="C:\Users\Cosmin\Desktop\FamilyTree\woman.png" /></TD> <TD>TARCUS Maria <BR />Gen: F<BR />Data de nastere: 1936<BR />Nume de familie nastere:  TARCUS</TD></TR></TABLE>> fontsize=24]
+{rank = same; AJ; 1936;}
+BJ[label=<<TABLE border="0" align="left"><TR> <TD><IMG SRC="C:\Users\Cosmin\Desktop\FamilyTree\woman.png" /></TD> <TD>TARCUS Ioana <BR />Gen: F<BR />Data de nastere: 1938<BR />Nume de familie nastere:  TARCUS</TD></TR></TABLE>> fontsize=24]
+{rank = same; BJ; 1938;}
+CJ[label=<<TABLE border="0" align="left"><TR> <TD><IMG SRC="C:\Users\Cosmin\Desktop\FamilyTree\man.png" /></TD> <TD>_______ Georgian Floarian(Bebe) <BR />Gen: M<BR />Data de nastere: 1970<BR /></TD></TR></TABLE>> fontsize=24]
+{rank = same; CJ; 1970;}
+DJ[label=<<TABLE border="0" align="left"><TR> <TD><IMG SRC="C:\Users\Cosmin\Desktop\FamilyTree\man.png" /></TD> <TD>MATACHE Marian <BR />Gen: M<BR />Data de nastere: 1970<BR /></TD></TR></TABLE>> fontsize=24]
+{rank = same; DJ; 1970;}
+EJ[label=<<TABLE border="0" align="left"><TR> <TD><IMG SRC="C:\Users\Cosmin\Desktop\FamilyTree\woman.png" /></TD> <TD>MATACHE Stela <BR />Gen: F<BR />Data de nastere: 1975<BR />Nume de familie nastere:  MATACHE</TD></TR></TABLE>> fontsize=24]
+{rank = same; EJ; 1975;}
+FJ[label=<<TABLE border="0" align="left"><TR> <TD><IMG SRC="C:\Users\Cosmin\Desktop\FamilyTree\woman.png" /></TD> <TD>MATACHE Neluta <BR />Gen: F<BR />Data de nastere: 1975<BR />Nume de familie nastere:  MATACHE</TD></TR></TABLE>> fontsize=24]
+{rank = same; FJ; 1975;}
+GJ[label=<<TABLE border="0" align="left"><TR> <TD><IMG SRC="C:\Users\Cosmin\Desktop\FamilyTree\woman.png" /></TD> <TD>_______ Mariana(Cocuta) <BR />Gen: F<BR />Data de nastere: 1975<BR />Nume de familie nastere:  NA</TD></TR></TABLE>> fontsize=24]
+{rank = same; GJ; 1975;}
+HJ[label=<<TABLE border="0" align="left"><TR> <TD><IMG SRC="C:\Users\Cosmin\Desktop\FamilyTree\woman.png" /></TD> <TD>_______ Geta <BR />Gen: F<BR />Data de nastere: 1975<BR />Nume de familie nastere:  NA</TD></TR></TABLE>> fontsize=24]
+{rank = same; HJ; 1975;}
+IJ[label=<<TABLE border="0" align="left"><TR> <TD><IMG SRC="C:\Users\Cosmin\Desktop\FamilyTree\man.png" /></TD> <TD>_______ Mugurel <BR />Gen: M<BR />Data de nastere: 1970<BR /></TD></TR></TABLE>> fontsize=24]
+{rank = same; IJ; 1970;}
+JJ[label=<<TABLE border="0" align="left"><TR> <TD><IMG SRC="C:\Users\Cosmin\Desktop\FamilyTree\woman.png" /></TD> <TD>TARCUS Maria Melisa <BR />Gen: F<BR />Data de nastere: 2003<BR />Nume de familie nastere:  NA</TD></TR></TABLE>> fontsize=24]
+{rank = same; JJ; 2003;}
+AAB[label=<<TABLE border="0" align="left"><TR> <TD><IMG SRC="C:\Users\Cosmin\Desktop\FamilyTree\woman.png" /></TD> <TD>_______ Florina <BR />Gen: F<BR />Data de nastere: 1975<BR />Nume de familie nastere:  ILIE</TD></TR></TABLE>> fontsize=24]
+{rank = same; AAB; 1975;}
+BAB[label=<<TABLE border="0" align="left"><TR> <TD><IMG SRC="C:\Users\Cosmin\Desktop\FamilyTree\man.png" /></TD> <TD>_______ Victor <BR />Gen: M<BR />Data de nastere: 1975<BR /></TD></TR></TABLE>> fontsize=24]
+{rank = same; BAB; 1975;}
+CAB[label=<<TABLE border="0" align="left"><TR> <TD><IMG SRC="C:\Users\Cosmin\Desktop\FamilyTree\man.png" /></TD> <TD>_______ Danut <BR />Gen: M<BR />Data de nastere: 1995<BR /></TD></TR></TABLE>> fontsize=24]
+{rank = same; CAB; 1995;}
+DAB[label=<<TABLE border="0" align="left"><TR> <TD><IMG SRC="C:\Users\Cosmin\Desktop\FamilyTree\man.png" /></TD> <TD>PARVAN Robert <BR />Gen: M<BR />Data de nastere: 2011<BR /></TD></TR></TABLE>> fontsize=24]
+{rank = same; DAB; 2011;}
+EAB[label=<<TABLE border="0" align="left"><TR> <TD><IMG SRC="C:\Users\Cosmin\Desktop\FamilyTree\man.png" /></TD> <TD>MATACHE Radu <BR />Gen: M<BR />Data de nastere: 1936<BR /></TD></TR></TABLE>> fontsize=24]
+{rank = same; EAB; 1936;}
+FAB[label="" shape=circle ]GAB[label="" shape=circle ]HAB[label="" shape=circle ]IAB[label="" shape=circle ]JAB[label="" shape=circle ]ABB[label="" shape=circle ]BBB[label="" shape=circle ]CBB[label="" shape=circle ]DBB[label="" shape=circle ]EBB[label="" shape=circle ]FBB[label="" shape=circle ]GBB[label="" shape=circle ]HBB[label="" shape=circle ]IBB[label="" shape=circle ]JBB[label="" shape=circle ]ACB[label="" shape=circle ]BCB[label="" shape=circle ]CCB[label="" shape=circle ]DCB[label="" shape=circle ]ECB[label="" shape=circle ]FCB[label="" shape=circle ]GCB[label="" shape=circle ]HCB[label="" shape=circle ]ICB[label="" shape=circle ]JCB[label="" shape=circle ]ADB[label="" shape=circle ]BDB[label="" shape=circle ]CDB[label="" shape=circle ]DDB[label="" shape=circle ]    FAB -> A;
+    FAB -> B;
+    GAB -> C;
+    G -> D;
+    HAB -> I;
+    HAB -> J;
+    IAB -> BB;
+    IAB -> DB;
+    IAB -> EB;
+    GAB -> H;
+    GAB -> FB;
+    GAB -> IB;
+    JAB -> HB;
+    JAB -> JB;
+    GAB -> AC;
+    ABB -> CC;
+    G -> BC;
+    BBB -> FC;
+    BBB -> GC;
+    CBB -> DC;
+    DBB -> CB;
+    EBB -> E;
+    FBB -> G;
+    CBB -> AB;
+    FD -> GD;
+    FD -> GB;
+    GBB -> ID;
+    EBB -> CE;
+    EBB -> HF;
+    EBB -> AE;
+    EBB -> JD;
+    EBB -> IE;
+    EBB -> JE;
+    EBB -> FF;
+    HBB -> EE;
+    HBB -> FE;
+    HBB -> GE;
+    HBB -> HE;
+    IBB -> BF;
+    IBB -> CF;
+    IBB -> DF;
+    IBB -> EF;
+    CBB -> JF;
+    JBB -> BG;
+    JBB -> CG;
+    ACB -> DG;
+    BCB -> JG;
+    CCB -> BH;
+    DCB -> FG;
+    ECB -> EG;
+    FCB -> IH;
+    GCB -> JH;
+    HCB -> CH;
+    DCB -> CI;
+    ICB -> EI;
+    ICB -> FI;
+    JCB -> GI;
+    ADB -> F;
+    ADB -> JI;
+    ADB -> AJ;
+    ADB -> BJ;
+    BDB -> JJ;
+    DBB -> AAB;
+    CDB -> CAB;
+    DDB -> EJ;
+    DDB -> FJ;
+    DDB -> DJ;
+    AJ -> GJ;
+    BJ -> CJ;
+    BJ -> HJ;
+    BG -> DAB;
+    D -> FAB[dir=both arrowhead=dot,arrowtail=dot];
+    FAB -> C[dir=both arrowhead=dot,arrowtail=dot];
+    E -> GAB[dir=both arrowhead=dot,arrowtail=dot];
+    GAB -> F[dir=both arrowhead=dot,arrowtail=dot];
+    H -> HAB[dir=both arrowhead=dot,arrowtail=dot];
+    HAB -> AB[dir=both arrowhead=dot,arrowtail=dot];
+    CB -> IAB[dir=both arrowhead=dot,arrowtail=dot];
+    IAB -> FB[dir=both arrowhead=dot,arrowtail=dot];
+    IB -> JAB[dir=both arrowhead=dot,arrowtail=dot];
+    JAB -> GB[dir=both arrowhead=dot,arrowtail=dot];
+    BC -> ABB[dir=both arrowhead=dot,arrowtail=dot];
+    ABB -> HG[dir=both arrowhead=dot,arrowtail=dot];
+    DC -> BBB[dir=both arrowhead=dot,arrowtail=dot];
+    BBB -> EC[dir=both arrowhead=dot,arrowtail=dot];
+    HC -> CBB[dir=both arrowhead=dot,arrowtail=dot];
+    CBB -> IC[dir=both arrowhead=dot,arrowtail=dot];
+    JC -> DBB[dir=both arrowhead=dot,arrowtail=dot];
+    DBB -> AD[dir=both arrowhead=dot,arrowtail=dot];
+    BD -> EBB[dir=both arrowhead=dot,arrowtail=dot];
+    EBB -> CD[dir=both arrowhead=dot,arrowtail=dot];
+    DD -> FBB[dir=both arrowhead=dot,arrowtail=dot];
+    FBB -> ED[dir=both arrowhead=dot,arrowtail=dot];
+    GD -> GBB[dir=both arrowhead=dot,arrowtail=dot];
+    GBB -> HD[dir=both arrowhead=dot,arrowtail=dot];
+    CE -> HBB[dir=both arrowhead=dot,arrowtail=dot];
+    HBB -> DE[dir=both arrowhead=dot,arrowtail=dot];
+    JE -> IBB[dir=both arrowhead=dot,arrowtail=dot];
+    IBB -> AF[dir=both arrowhead=dot,arrowtail=dot];
+    JF -> JBB[dir=both arrowhead=dot,arrowtail=dot];
+    JBB -> AG[dir=both arrowhead=dot,arrowtail=dot];
+    EG -> ACB[dir=both arrowhead=dot,arrowtail=dot];
+    ACB -> FG[dir=both arrowhead=dot,arrowtail=dot];
+    IG -> BCB[dir=both arrowhead=dot,arrowtail=dot];
+    BCB -> FC[dir=both arrowhead=dot,arrowtail=dot];
+    AH -> CCB[dir=both arrowhead=dot,arrowtail=dot];
+    CCB -> GC[dir=both arrowhead=dot,arrowtail=dot];
+    CH -> DCB[dir=both arrowhead=dot,arrowtail=dot];
+    DCB -> DH[dir=both arrowhead=dot,arrowtail=dot];
+    IH -> ECB[dir=both arrowhead=dot,arrowtail=dot];
+    ECB -> JH[dir=both arrowhead=dot,arrowtail=dot];
+    EH -> FCB[dir=both arrowhead=dot,arrowtail=dot];
+    FCB -> FH[dir=both arrowhead=dot,arrowtail=dot];
+    GH -> GCB[dir=both arrowhead=dot,arrowtail=dot];
+    GCB -> HH[dir=both arrowhead=dot,arrowtail=dot];
+    AI -> HCB[dir=both arrowhead=dot,arrowtail=dot];
+    HCB -> BI[dir=both arrowhead=dot,arrowtail=dot];
+    DI -> ICB[dir=both arrowhead=dot,arrowtail=dot];
+    ICB -> CI[dir=both arrowhead=dot,arrowtail=dot];
+    GG -> JCB[dir=both arrowhead=dot,arrowtail=dot];
+    JCB -> JB[dir=both arrowhead=dot,arrowtail=dot];
+    HI -> ADB[dir=both arrowhead=dot,arrowtail=dot];
+    ADB -> II[dir=both arrowhead=dot,arrowtail=dot];
+    IJ -> BDB[dir=both arrowhead=dot,arrowtail=dot];
+    BDB -> AC[dir=both arrowhead=dot,arrowtail=dot];
+    AAB -> CDB[dir=both arrowhead=dot,arrowtail=dot];
+    CDB -> BAB[dir=both arrowhead=dot,arrowtail=dot];
+    JI -> DDB[dir=both arrowhead=dot,arrowtail=dot];
+    DDB -> EAB[dir=both arrowhead=dot,arrowtail=dot];
+}
