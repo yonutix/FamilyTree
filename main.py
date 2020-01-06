@@ -4,12 +4,15 @@ from backend.link import *
 from tkinter import filedialog
 from graphviz import Digraph
 import argparse
+from datetime import date
 
 import os
 
 allMembers = []
 
 allLinks = []
+
+allParents = []
 
 generalID = 0
 
@@ -24,7 +27,7 @@ def infereParentOf(links):
     for link in links:
         if link.getType() == "childOf":
             if not Link(link.getDest(), link.getSource(), "parentOf") in links:
-                links = links + [Link(link.getDest(), link.getSource(), "parentOf")]
+                links = links + [Link(link.getDest().getLabel(), link.getSource().getLabel(), "parentOf")]
     return links
 
 
@@ -185,6 +188,8 @@ def onLoad(filename):
     else:
         print("Could not load " + filename)
 
+    infereParents()
+
 def save(file):
     if file:
         file.write(str(len(allMembers)) + "\n")
@@ -211,6 +216,25 @@ def save(file):
         for link in allLinks:
             file.write(str(link.getSource().getId()) + "," + str(link.getDest().getId()) + ","+ link.getType() + "\n")
         file.close()
+
+def infereParents():
+    print("Infere parents")
+
+    global generalID
+
+
+    for i in range(len(allLinks)-1):
+        for j in range(i+1, len(allLinks)):
+            if allLinks[i].getDest() == allLinks[j].getDest():
+                OK = True
+                for p in allParents:
+                    if p[0] == allLinks[i].getSource().getLabel() or p[1] == allLinks[i].getSource().getLabel():
+                        OK = False
+                if OK:
+                    allParents.append([allLinks[i].getSource().getLabel(), allLinks[j].getSource().getLabel(), Member.getLabelById(generalID)])
+                    generalID = generalID + 1
+    print(allParents)
+
 
 
 def searchByName(name):
@@ -245,11 +269,11 @@ def exportDotFile(filename):
     f = open(filename,"w")
     f.write("digraph {\n")
 
-    f.write("graph [label=\"Arbore genealogic, 21 Noiembrie 2019, ionut.cosmin.mihai@gmail.com\", labelloc=b, fontsize=72, fontcolor=black,  fontname=Courier, bgcolor=\"#ffffff\", ratio=compress];\n");
+    f.write("graph [label=\"Arbore genealogic," + str(date.today()) + ", ionut.cosmin.mihai@gmail.com\", labelloc=b, fontsize=72, fontcolor=black,  fontname=Courier, bgcolor=\"#ffffff\"];\n");
 
     f.write("edge [color=white, arrowhead=open, fontname=Courier, fontcolor=black, color=black, penwidth=3, arrowsize=3];\n")
 
-    f.write("node [shape=rectangle, fontcolor=black, color=black];\n")
+    f.write("node [shape=plaintext, fontcolor=black, color=black];\n")
 
     yearList = []
     for i in range(1900, 2020, 1):
@@ -260,7 +284,7 @@ def exportDotFile(filename):
                     yearList.append(i)
 
     for i in range(len(yearList)):
-        f.write("    " + str(yearList[i])  + "[label=" + str(yearList[i]) + " fontsize=100 shape=plaintext];\n")
+        f.write("    " + str(yearList[i])  + "[label=" + str(yearList[i]) + " fontsize=72 shape=plaintext];\n")
 
 
 
@@ -281,10 +305,10 @@ def exportDotFile(filename):
         if member.getGender() == "F":
             numeFam =  "Nume de familie nastere:  " + member.getNameBefore()
 
-        thisLabel =  "\"" + member.getName() + " " + member.getFirstName() + " \l" + "Gen: " + member.getGender() +  "\l"
+        thisLabel =  "" + member.getName() + " " + member.getFirstName() + " <BR />" + "Gen: " + member.getGender() +  "<BR />"
 
-        thisLabel = thisLabel + "Data de nastere: " + str(member.getBirthDate().year) + "\l"
-        thisLabel = thisLabel + numeFam + "\""
+        thisLabel = thisLabel + "Data de nastere: " + str(member.getBirthDate().year) + "<BR />"
+        thisLabel = thisLabel + numeFam + ""
 
         #thisLabel = "<<TABLE BORDER=\"2\" height=\"200\">"
         #thisLabel = thisLabel + "<TR> <TD>" + member.getName() + " " + member.getFirstName() + "</TD></TR>"
@@ -295,21 +319,47 @@ def exportDotFile(filename):
         #    thisLabel = thisLabel + "<TR> <TD>" + "Nume de familie nastere: <BR /> "  + member.getNameBefore() + "</TD></TR>"
 
         #thisLabel = thisLabel + "</TABLE>>"
+        imgSrc = "<IMG SRC=\"" + member.getImgSrc() + "\" />"
 
         nodeAttr = "["
-        nodeAttr = nodeAttr + "label=" + thisLabel + ""
+        nodeAttr = nodeAttr + "label=<<TABLE border=\"0\" align=\"left\"><TR> <TD>" + imgSrc + "</TD> <TD>" + thisLabel + "</TD></TR></TABLE>>"
         #nodeAttr = nodeAttr + ", image=\"" + member.getImgSrc() + "\""
         #nodeAttr = nodeAttr + ", height=2"
-        nodeAttr = nodeAttr + " fontsize=36]\n"
+        nodeAttr = nodeAttr + " fontsize=24]\n"
         f.write("" + member.getLabel() + nodeAttr)
 
         #rankStr = ""
         rankStr = "{rank = same; " + member.getLabel() + "; " + str(int(member.getBirthDate().year)) + ";" + "}\n"
         f.write(rankStr);
 
+    for parentGroup in allParents:
+        f.write(parentGroup[2] + "[label=\"\"" + " shape=circle ]");
+
+    linkCounter = []
     for link in allLinks: 
         if link.getType() == "parent of":
-            f.write("    " + link.getSource().getLabel() + " -> " + link.getDest().getLabel() + ";\n")
+            srcLabel = None
+            alreadyOn = False
+            for p in allParents:
+                if link.getSource().getLabel() == p[0] or link.getSource().getLabel() == p[1]:
+                    srcLabel = p[2]
+                    if link.getDest().getLabel() in linkCounter:
+                        alreadyOn = True
+                    else:
+                        linkCounter.append(link.getDest().getLabel())
+
+
+            if srcLabel:
+                if not alreadyOn:
+                    f.write("    " + srcLabel + " -> " + link.getDest().getLabel() + ";\n")
+            else:
+                f.write("    " + link.getSource().getLabel() + " -> " + link.getDest().getLabel() + ";\n")
+
+    for parentGroup in allParents:
+        f.write("    " + parentGroup[0] + " -> " + parentGroup[2] + "[dir=both arrowhead=dot,arrowtail=dot];\n")
+        f.write("    " + parentGroup[2] + " -> " + parentGroup[1] + "[dir=both arrowhead=dot,arrowtail=dot];\n")
+
+
 
     f.write("}\n")
     f.close()
@@ -341,7 +391,7 @@ def onRender():
         if member.getBirthDate():
             birthDate = str(member.getBirthDate())
         print(member.getImgSrc())
-        thisLabel = '''<<TABLE BORDER="0"><TR> <TD>''' + member.getName() + " " + member.getFirstName() + "</TD></TR>"
+        thisLabel = '''<<TABLE><TR> <TD>''' + member.getName() + " " + member.getFirstName() + "</TD></TR>"
         thisLabel = thisLabel + '''<TR> <TD><IMG SRC="''' + member.getImgSrc() + '''" /></TD> </TR>'''
         print(os.path.dirname(os.path.realpath(__file__)))
         
@@ -530,6 +580,8 @@ if (args.mode == "cmd"):
 
             loadMembers(cmd_args[1])
             loadLinks(cmd_args[2])
+
+            infereParents()
             #onLoad(cmd_args[1])
 
         elif cmd.startswith("search name"):
